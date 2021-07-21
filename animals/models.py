@@ -1,0 +1,11 @@
+from django.db import models
+
+class Animal(models.Model):
+    animal_name = models.CharField(max_length=50, default=None)
+    animal_type = models.CharField(max_length=50, default=None)
+    animal_bio = models.CharField(max_length=300, default=None)
+    animal_age = models.PositiveIntegerField(default=None)
+    animal_image = models.CharField(max_length=300)
+
+    def __str__(self):
+        return f"{self.animal_name} - {self.animal_type}"

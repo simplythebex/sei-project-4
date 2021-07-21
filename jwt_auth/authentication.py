@@ -1,0 +1,36 @@
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.exceptions import PermissionDenied
+from django.contrib.auth import get_user_model
+from django.conf import settings
+import jwt
+
+User = get_user_model()
+
+class JWTAuthentication(BasicAuthentication):
+
+    def authenticate(self, request):
+        # get the token from the request
+        header = request.headers.get('Authorization')
+
+        # return non if no token exists
+        if not header:
+            return None
+
+        # if format of token is incorrect, throw an error
+        if not header.startswith('Bearer'):
+            raise PermissionDenied(detail="Invalid token")
+
+        # if token format is correct, remove and replace 'Bearer ' with empty string
+        token = header.replace('Bearer ', '')
+
+        # to decode the token
+        try:
+            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
+            print('PAYLOAD', payload)
+            user = User.objects.get(pk=payload.get('sub'))
+        except jwt.exceptions.InvalidTokenError:
+            raise PermissionDenied(detail="Invalid token")
+        except User.DoesNotExist:
+            raise PermissionDenied(detail='User not found')
+
+        return(user, token)
