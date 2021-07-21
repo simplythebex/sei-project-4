@@ -4,12 +4,13 @@ from rest_framework import status
 from rest_framework.exceptions import NotFound
 
 from .models import Animal
-from .serializers import AnimalSerializer
+from .serializers.common import AnimalSerializer
+from .serializers.populated import PopulatedAnimalSerializer
 
 class AnimalListView(APIView):
     def get(self, _request):
         animals = Animal.objects.all()
-        serialized_animals = AnimalSerializer(animals, many=True)
+        serialized_animals = PopulatedAnimalSerializer(animals, many=True)
         return Response(serialized_animals.data, status=status.HTTP_200_OK)
 
     def post(self, request):
@@ -30,7 +31,7 @@ class AnimalDetailView(APIView):
 
     def get(self, _request, pk):
         animal = self.get_animal(pk=pk)
-        serialized_animal = AnimalSerializer(animal)
+        serialized_animal = PopulatedAnimalSerializer(animal)
         return Response(serialized_animal.data, status=status.HTTP_200_OK)
 
     def delete(self, _request, pk):
