@@ -6,6 +6,11 @@ class Animal(models.Model):
     animal_bio = models.CharField(max_length=300, default=None)
     animal_age = models.PositiveIntegerField(default=None)
     animal_image = models.CharField(max_length=300)
+    owner = models.ForeignKey(
+      "jwt_auth.User",
+      related_name="animals",
+      on_delete = models.CASCADE
+    )
 
     def __str__(self):
         return f"{self.animal_name} - {self.animal_type}"

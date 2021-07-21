@@ -2,19 +2,22 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import NotFound
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Animal
 from .serializers.common import AnimalSerializer
 from .serializers.populated import PopulatedAnimalSerializer
 
 class AnimalListView(APIView):
+    permission_classes = (IsAuthenticated, )
+
     def get(self, _request):
         animals = Animal.objects.all()
         serialized_animals = PopulatedAnimalSerializer(animals, many=True)
         return Response(serialized_animals.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        print('REQUEST DATA', request.data)
+        request.data['owner'] = request.user.id
         animal_to_add = AnimalSerializer(data=request.data)
         if animal_to_add.is_valid():
             animal_to_add.save()
@@ -27,7 +30,7 @@ class AnimalDetailView(APIView):
         try:
             return Animal.objects.get(pk=pk)
         except Animal.DoesNotExist:
-            raise NotFound(detail="🆘 that pet cannot be found! 🆘")
+            raise NotFound(detail="🆘 That pet cannot be found! 🆘")
 
     def get(self, _request, pk):
         animal = self.get_animal(pk=pk)

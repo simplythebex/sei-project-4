@@ -1,6 +1,8 @@
-from requests.serializers.common import RequestSerializer
+from requests.serializers.populated import PopulatedRequestSerializer
 from .common import AnimalSerializer
+from jwt_auth.serializer import UserSerializer
 
 class PopulatedAnimalSerializer(AnimalSerializer):
-    requests = RequestSerializer(many=True)
+    requests = PopulatedRequestSerializer(many=True)
+    owner = UserSerializer()
 
