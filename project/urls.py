@@ -21,5 +21,6 @@ urlpatterns = [
     path('animals/', include('animals.urls')),
     path('requests/', include('requests.urls')),
     path('auth/', include('jwt_auth.urls')),
-    path('activities/', include('activities.urls'))
+    path('activities/', include('activities.urls')),
+    path('schedules/', include('schedules.urls'))
 ]

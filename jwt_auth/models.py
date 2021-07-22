@@ -12,4 +12,8 @@ class User(AbstractUser):
       "activities.Activity",
       related_name="users"
     )
+    schedule = models.ManyToManyField(
+        "schedules.Schedule",
+        related_name="users"
+    )
 

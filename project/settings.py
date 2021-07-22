@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'animals',
     'requests',
     "activities",
+    "schedules",
     'jwt_auth'
 ]
 
