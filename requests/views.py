@@ -32,7 +32,7 @@ class RequestDetailedView(APIView):
         serialized_request = RequestSerializer(request)
         return Response(serialized_request.data, status=status.HTTP_200_OK)
 
-    def delete(self, _request, pk):
+    def delete(self, request, pk):
         try:
             request_to_delete = Request.objects.get(pk=pk)
         except Request.DoesNotExist:

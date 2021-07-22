@@ -8,3 +8,4 @@ class User(AbstractUser):
     account_type = models.CharField(max_length=50)
     bio = models.CharField(max_length=300)
     profile_picture = models.CharField(max_length=300)
+

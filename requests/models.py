@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Request(models.Model):
-    request_status = models.BooleanField()
+    request_status = models.CharField(max_length=300)
     message = models.TextField(max_length=300)
     created_at = models.DateTimeField(auto_now_add=True)
     animal = models.ForeignKey(
