@@ -1,0 +1,63 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+// Navbar styling
+.navbar {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .nav-logo {
+    img {
+      height: 60px;
+      object-fit: contain;
+    }
+    img:hover {
+      cursor: pointer;
+    }
+  }
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .nav-link {
+      padding: 0 10px;
+      margin: 0 5px;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+// homepage styling
+.homepage {
+  background-image: url(./images/andrew-s-ouo1hbizWwo-unsplash.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 655px;
+  .homepage-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 655px;
+    .button {
+      margin: 0 50px;
+      padding: 15px 15px;
+      background-color: white;
+      border-radius: 15px;
+    }
+    .button:hover {
+      padding: 17px 17px;
+      cursor: pointer;
+    }
+  }
+}
