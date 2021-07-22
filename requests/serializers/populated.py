@@ -1,4 +1,4 @@
-from jwt_auth.serializer import UserSerializer
+from jwt_auth.serializers.common import UserSerializer
 from .common import RequestSerializer
 
 class PopulatedRequestSerializer(RequestSerializer):
