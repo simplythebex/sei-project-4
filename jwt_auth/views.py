@@ -62,3 +62,4 @@ class UserDetailView(APIView):
         user = self.get_user(pk=pk)
         serialized_user = PopulatedUserSerializer(user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
+        

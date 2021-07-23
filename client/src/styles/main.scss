@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
 * {
   margin: 0;
@@ -29,6 +30,8 @@
     .nav-link {
       padding: 0 10px;
       margin: 0 5px;
+      font-size: 1.5em;
+      color: black;
     }
     .nav-link:hover {
       text-decoration: underline;
@@ -39,25 +42,74 @@
 
 // homepage styling
 .homepage {
-  background-image: url(./images/andrew-s-ouo1hbizWwo-unsplash.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/andrew-s-ouo1hbizWwo-unsplash.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 655px;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: fixed;
   .homepage-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 655px;
-    .button {
-      margin: 0 50px;
-      padding: 15px 15px;
-      background-color: white;
-      border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    position: fixed;
+    a {
+      text-decoration: none;
+      .button {
+        margin: 0 50px;
+        padding: 15px 15px;
+        background-color: rgba(248, 246, 246, 0.6);
+        border-radius: 15px;
+        width: 160px;
+        text-align: center;
+        color: black;
+      }
+      .button:hover {
+        cursor: pointer;
+        background-color: rgba(248, 246, 246, 0.8);
+      }
     }
-    .button:hover {
-      padding: 17px 17px;
-      cursor: pointer;
+
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .homepage{
+    background-color: beige;
+    background-image: url(./images/homepage-background.jpg);
+    .homepage-buttons {
+      flex-direction: column;
+      a {
+        .button {
+          margin: 20px 0;
+          background-color: rgba(0, 0, 0, 0.7);
+          color: white;
+        }
+        .button:hover {
+          background-color: rgba(0, 0, 0);
+          padding: 15px 15px;
+        }
+
+      }
+
     }
+  }
+}
+
+// Login and register form styling
+
+.login-register-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form {
+    width: 50%;
   }
 }

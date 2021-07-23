@@ -31,11 +31,12 @@ class UserSerializer(serializers.ModelSerializer):
             'email',
             'password_confirmation',
             'password',
-            'username',
             'activity',
-            'animals',
             'schedule',
             'bio',
-            'profile_picture'
+            'profile_picture',
+            'first_name',
+            'last_name',
+            'account_type'
         )
         
