@@ -9,7 +9,7 @@ from .serializers.common import AnimalSerializer
 from .serializers.populated import PopulatedAnimalSerializer
 
 class AnimalListView(APIView):
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
 
     def get(self, _request):
         animals = Animal.objects.all()

@@ -9,7 +9,7 @@ from rest_framework.exceptions import PermissionDenied
 from .serializers.common import RequestSerializer
 
 class RequestListView(APIView):
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
 
     def post(self, request):
         request.data["owner"] = request.user.id

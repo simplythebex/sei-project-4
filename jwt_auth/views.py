@@ -43,7 +43,7 @@ class LoginView(APIView):
 
 
 class UserListView(APIView):
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
 
     def get(self, _request):
         users = User.objects.all()
