@@ -28,6 +28,7 @@ class LoginView(APIView):
 
         try:
             user_to_login = User.objects.get(email=email)
+            print('usertologin', user_to_login)
         except User.DoesNotExist:
             raise PermissionDenied(detail="Invalid username or password")
         if not user_to_login.check_password(password):
