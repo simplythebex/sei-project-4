@@ -28,10 +28,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      a {
+        text-decoration: none;
+      }
       .nav-link {
         padding: 0 10px;
         margin: 0 5px;
-        font-size: 1.5em;
+        font-size: 1.2em;
         color: black;
       }
       .nav-link:hover {
@@ -165,6 +168,92 @@
     }
     h3 {
       font-size: 2.5em;
+    }
+    .information {
+      .request {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .profile-image {
+          height: 50px;
+          width: 50px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 1px solid lightgrey;
+        }
+
+      }
+    }
+  }
+}
+
+// user index styling
+.user-index {
+  margin-top: 10px;
+  .row {
+    .card {
+      margin: 10px;
+      padding: 0;
+      .big-card {
+        display: flex;
+        align-items: center;
+        .card-img {
+          height: 200px;
+          width: 200px;
+          object-fit: cover;
+        }
+        .information {
+          padding: 0 10px;
+          .card-title {
+            padding: 5px;
+          }
+          .card-text {
+            padding: 0 5px;
+          }
+        }
+      }
+
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+    }
+  }
+}
+
+// user show styling 
+
+.user-show {
+  margin-top: 20px;
+  .user-card {
+    display: flex;
+    justify-content: center;
+    img {
+      height: 500px;
+      width: 500px;
+      object-fit: cover;
+      margin-bottom: 5px;
+      margin-right: 20px;
+    }
+    h3 {
+      font-size: 2.5em;
+    }
+    .information {
+      .request {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .profile-image {
+          height: 50px;
+          width: 50px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 1px solid lightgrey;
+        }
+
+      }
     }
   }
 }

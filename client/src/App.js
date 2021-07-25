@@ -6,6 +6,8 @@ import RegisterBorrower from './components/auth/RegisterBorrower'
 import RegisterOwner from './components/auth/RegisterOwner'
 import AnimalIndex from './components/animals/AnimalIndex'
 import AnimalShow from './components/animals/AnimalShow'
+import UserIndex from './components/users/UserIndex'
+import UserShow from './components/users/UserShow'
 
 const App = () => {
 
@@ -13,6 +15,9 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Switch>
+        <Route path="/borrowers/:id">
+          <UserShow />
+        </Route>
         <Route path="/animals/:id">
           <AnimalShow />
         </Route>
@@ -21,6 +26,9 @@ const App = () => {
         </Route>
         <Route path="/registerowner">
           <RegisterOwner />
+        </Route>
+        <Route path="/borrowers">
+          <UserIndex />
         </Route>
         <Route path="/animals">
           <AnimalIndex />

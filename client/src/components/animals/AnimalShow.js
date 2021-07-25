@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 const AnimalShow = () => {
 
@@ -28,10 +29,6 @@ const AnimalShow = () => {
 
   console.log('animal data', animal)
 
-  // const username = animal.owner.username
-  // console.log('username', username)
-
-
   return (
     <Container className="animal-show">
       {animal ?
@@ -51,7 +48,13 @@ const AnimalShow = () => {
                 <li>{animal.animal_name} needs {animal.activity.map(act => act.name)} on {animal.schedule.map(sch => sch.name)}</li>
               </ul>
               <hr />
-              Owned by {animal.owner.username}
+              <div className="request">
+                <div className="owner">
+                  <img className="profile-image" src={animal.owner.profile_picture} alt={animal.owner.username} />
+                  Owned by {animal.owner.first_name}
+                </div>
+                <Button variant="secondary">Send {animal.owner.first_name} a request</Button>
+              </div>
             </div>
           </div>
 
