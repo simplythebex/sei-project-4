@@ -44,9 +44,6 @@ const UserShow = () => {
               <hr />
               {user.first_name} is available to give {user.activity.map(act => act.name)} on {user.schedule.map(sch => sch.name)}
               <hr />
-              {/* <div className="request">
-                <Button variant="secondary">Send {user.first_name} a request</Button>
-              </div> */}
             </div>
           </div>
 

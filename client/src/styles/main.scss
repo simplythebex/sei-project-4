@@ -7,6 +7,10 @@
   padding: 0;
   font-family: 'Roboto Condensed', sans-serif;
 }
+p {
+  padding: 0;
+  margin: 0;
+}
 
 // Navbar styling
 .nav-container {
@@ -41,6 +45,19 @@
         text-decoration: underline;
         cursor: pointer;
       }
+      img {
+        width: 50px;
+        height: 50px;
+        margin: 0 5px 0 15px;
+        border-radius: 50%;
+        border: 1px solid lightgrey;
+      }
+      .dropdown {
+        button {
+          font-size: 1.2em;
+          padding: 0;
+        }
+      }
     }
   }
   hr {
@@ -72,7 +89,7 @@
       .button {
         margin: 0 50px;
         padding: 15px 15px;
-        background-color: rgba(248, 246, 246, 0.6);
+        background-color: rgba(248, 246, 246, 0.8);
         border-radius: 15px;
         width: 160px;
         text-align: center;
@@ -80,7 +97,7 @@
       }
       .button:hover {
         cursor: pointer;
-        background-color: rgba(248, 246, 246, 0.8);
+        background-color: rgba(248, 246, 246);
       }
     }
 
@@ -118,8 +135,38 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h2 {
+    margin: 20px 0;
+  }
   form {
     width: 50%;
+  }
+}
+
+// register animal from styling 
+
+.register-animal {
+  background-image: url(./images/homepage-background.jpg);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: fixed;
+
+  h2 {
+    text-align: center;
+  }
+  form {
+    width: 50%;
+    background-color: white;
+    padding: 20px;
+    margin: 30px;
+    border-radius: 15px;
+    border: 1px solid lightgrey;
   }
 }
 
@@ -155,13 +202,13 @@
 // animal show styling 
 
 .animal-show {
-  margin-top: 20px;
+  margin-top: 50px;
   .animal-card {
     display: flex;
     justify-content: center;
     img {
-      height: 500px;
-      width: 500px;
+      height: 350px;
+      width: 350px;
       object-fit: cover;
       margin-bottom: 5px;
       margin-right: 20px;
@@ -226,13 +273,13 @@
 // user show styling 
 
 .user-show {
-  margin-top: 20px;
+  margin-top: 50px;
   .user-card {
     display: flex;
     justify-content: center;
     img {
-      height: 500px;
-      width: 500px;
+      height: 350px;
+      width: 350px;
       object-fit: cover;
       margin-bottom: 5px;
       margin-right: 20px;
@@ -257,3 +304,103 @@
     }
   }
 }
+
+// user profile styling 
+.user-profile{
+  .top {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .profile-images {
+      margin-top: 100px;
+      img {
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 5px;
+        border: 1px solid lightgrey;
+      }
+    }
+    .information {
+      min-width: 500px;
+      height: 400px;
+      margin-top: 100px;
+      .info-header {
+        margin-top: 45px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h3 {
+          font-size: 2.3em;
+        }
+        .icon {
+          padding-right: 4px;
+        }
+        button {
+          padding: 5px 25px;
+          margin-bottom: 5px;
+        }
+      }
+      hr {
+        margin: 5px 0;
+      }
+      .date-joined {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 1.1em;
+        padding: 10px 0;
+      }
+      .borrow-info {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        .green {
+          padding: 0 20px;
+          margin-left: 10px;
+          border-radius: 20px;
+          border: 2px solid rgb(123, 175, 123);
+        }
+  
+        .red {
+          padding: 0 20px;
+          margin-left: 10px;
+          border-radius: 20px;
+          border: 2px solid rgb(216, 114, 114);
+        }
+      }
+      .needs {
+        .data {
+          display: flex;
+          align-items: center;
+          margin: 10px 0;
+          .activity {
+            padding: 3px 5px;
+            margin-left: 5px;
+            border-radius: 3px;
+            background-color: lightpink;
+          }
+          .schedule {
+            padding: 3px 5px;
+            margin-left: 5px;
+            border-radius: 3px;
+            background-color: lightskyblue;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom {
+    margin: 0 30px;
+    .bottom-text {
+      margin: 0 100px;
+      p {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+

@@ -8,6 +8,8 @@ import AnimalIndex from './components/animals/AnimalIndex'
 import AnimalShow from './components/animals/AnimalShow'
 import UserIndex from './components/users/UserIndex'
 import UserShow from './components/users/UserShow'
+import RegisterAnimal from './components/forms/RegisterAnimal'
+import ShowUserProfile from './components/forms/userProfile/ShowUserProfile'
 
 const App = () => {
 
@@ -20,6 +22,12 @@ const App = () => {
         </Route>
         <Route path="/animals/:id">
           <AnimalShow />
+        </Route>
+        <Route path="/profile">
+          <ShowUserProfile />
+        </Route>
+        <Route path="/register-animal">
+          <RegisterAnimal />
         </Route>
         <Route path="/registerborrower">
           <RegisterBorrower />

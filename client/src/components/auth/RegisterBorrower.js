@@ -89,7 +89,7 @@ const RegisterBorrower = () => {
 
   return (
     <div className="login-register-form">
-      <h1>I am a Borrower</h1>
+      <h2>I am a Borrower</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formEmail">
           <Form.Label>What is your email address?</Form.Label>

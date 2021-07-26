@@ -14,7 +14,7 @@ const AnimalIndex = () => {
     const getData = async () => {
       try {
         const { data } = await axios.get('/api/animals/')
-        setAnimals(data)
+        setAnimals(data.reverse())
       } catch (err) {
         console.log(err)
         setHasError(err)

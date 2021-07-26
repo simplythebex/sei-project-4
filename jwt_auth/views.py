@@ -57,10 +57,10 @@ class UserDetailView(APIView):
         try:
             return User.objects.get(pk=pk)
         except User.DoesNotExist:
-            raise NotFound(detail="🆘 That pet cannot be found! 🆘")
+            raise NotFound(detail="🆘 That user cannot be found! 🆘")
 
     def get(self, _request, pk):
         user = self.get_user(pk=pk)
         serialized_user = PopulatedUserSerializer(user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
-        
+                

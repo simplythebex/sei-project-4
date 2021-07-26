@@ -1,3 +1,6 @@
+// import { useState } from 'react'
+// import axios from 'axios'
+
 // gets the token from local storage
 export const getTokenFromLocalStorage = () => {
   return window.localStorage.getItem('token')
@@ -17,6 +20,5 @@ export const userIsAuthenticated = () => {
   const payload = getPayload()
   if (!payload) return false
   const now = Math.round(Date.now() / 1000)
-  console.log(now < payload.exp)
   return now < payload.exp
 }

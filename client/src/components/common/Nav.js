@@ -5,19 +5,41 @@ import PetPalLogo from '../../styles/images/PetPalLogo.jpg'
 import Button from 'react-bootstrap/Button'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import Form from 'react-bootstrap/Form'
-import { userIsAuthenticated } from '../helpers/auth'
-import { ToastContainer, toast } from 'react-toastify'
+import Dropdown from 'react-bootstrap/Dropdown'
+import { getPayload, getTokenFromLocalStorage, userIsAuthenticated } from '../helpers/auth'
 
 const Nav = () => {
 
   const history = useHistory()
   const location = useLocation()
-  console.log('location', location)
+
+  const [userProfile, setUserProfile] = useState()
+  const [errors, setErrors] = useState(false)
+
+  useEffect(() => {
+    const getCurrentUser = async () => {
+      try {
+        const payload = getPayload()
+        if (!payload) return 
+        const currentUserId = payload.sub
+        const { data } = await axios.get(`api/auth/users/${currentUserId}`,
+          {
+            headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
+          }
+        )
+        setUserProfile(data)
+      } catch (err) {
+        console.log(err)
+        setErrors(true)
+      }
+    }
+    getCurrentUser()
+  }, [])
+
+  console.log(userProfile)
 
   useEffect(() => {
   }, [location.pathname])
-
-  const notify = () => toast('welcome back!')
 
   const [show, setShow] = useState(false)
 
@@ -50,7 +72,6 @@ const Nav = () => {
       const { data } = await axios.post('/api/auth/login/', formData)
       setTokenToLocalStorage(data.token)
       history.push('/animals')
-      notify()
       setShow(false)
       console.log('response', data)
     } catch (err) {
@@ -75,7 +96,6 @@ const Nav = () => {
           </div>
         </a>
         <div className="nav-links">
-          <ToastContainer />
           {!userIsAuthenticated() ? 
             <>
               <Button variant="secondary" onClick={handleShow}>
@@ -126,7 +146,25 @@ const Nav = () => {
               <Link to="/borrowers">
                 <h3 className="nav-link">Find a borrower</h3>
               </Link>
-              <Button variant="secondary" onClick={handleLogout}>Log out</Button>{' '}
+              {
+                userProfile ? 
+                  <>
+                    <Link to="/profile">
+                      <img src={userProfile.profile_picture} alt={userProfile.username} />
+                    </Link>
+                    <Dropdown>
+                      <Dropdown.Toggle variant="secondary-light" id="dropdown-basic">
+                        {userProfile.first_name}
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="/profile">My profile</Dropdown.Item>
+                        <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </>
+                  : 
+                  <div></div>
+              }
             </>
           } 
         </div>
