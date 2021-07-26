@@ -1,20 +1,29 @@
-import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import PetPalLogo from '../../styles/images/PetPalLogo.jpg'
 import Button from 'react-bootstrap/Button'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import Form from 'react-bootstrap/Form'
 import { userIsAuthenticated } from '../helpers/auth'
+import { ToastContainer, toast } from 'react-toastify'
 
 const Nav = () => {
 
   const history = useHistory()
+  const location = useLocation()
+  console.log('location', location)
+
+  useEffect(() => {
+  }, [location.pathname])
+
+  const notify = () => toast('welcome back!')
 
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+
 
   const [error, setError] = useState(false)
   const [formData, setFormData] = useState({
@@ -41,6 +50,7 @@ const Nav = () => {
       const { data } = await axios.post('/api/auth/login/', formData)
       setTokenToLocalStorage(data.token)
       history.push('/animals')
+      notify()
       setShow(false)
       console.log('response', data)
     } catch (err) {
@@ -65,6 +75,7 @@ const Nav = () => {
           </div>
         </a>
         <div className="nav-links">
+          <ToastContainer />
           {!userIsAuthenticated() ? 
             <>
               <Button variant="secondary" onClick={handleShow}>
@@ -118,7 +129,6 @@ const Nav = () => {
               <Button variant="secondary" onClick={handleLogout}>Log out</Button>{' '}
             </>
           } 
-
         </div>
       </div>
       <hr />

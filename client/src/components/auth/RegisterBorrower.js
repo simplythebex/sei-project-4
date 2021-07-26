@@ -4,6 +4,20 @@ import axios from 'axios'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { ImageUploadField } from '../../ImageUploadField'
+import Select from 'react-select'
+
+const activityOptions = [
+  { value: 2, label: 'Company' },
+  { value: 3, label: 'Exercise' },
+  { value: 1, label: 'Playtime' }
+]
+
+const scheduleOptions = [
+  { value: 1, label: 'Weekday - daytimes' },
+  { value: 2, label: 'Weekday - evenings' },
+  { value: 3, label: 'Weekends' },
+  { value: 4, label: 'Holidays or overnight stays' }
+]
 
 const RegisterBorrower = () => {
 
@@ -14,7 +28,7 @@ const RegisterBorrower = () => {
     username: '',
     first_name: '',
     last_name: '',
-    account_type: '',
+    account_type: 'borrower',
     bio: '',
     activity: [],
     schedule: [],
@@ -38,7 +52,8 @@ const RegisterBorrower = () => {
   })
 
   const handleChange = (event) => {
-    const newFormData = { ...formData, [event.target.name]: event.target.value }
+    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
+    const newFormData = { ...formData, [event.target.name]: value }
     const newErrors = { ...errors, [event.target.name]: '' }
     console.log('new form data', newFormData)
     setFormData(newFormData)
@@ -52,7 +67,6 @@ const RegisterBorrower = () => {
       await axios.post('/api/auth/register/', formData)
       history.push('/animals')
     } catch (err) {
-      console.log('error response', err.response.data.errors)
       console.log('err.response', err.response)
       setErrors(err.response.data.errors)
     }
@@ -60,9 +74,18 @@ const RegisterBorrower = () => {
     // console.log('errors', errors)
   }
 
+  const handleMultiChange = (selected, name) => {
+    console.log('selected', selected)
+    console.log('name', name)
+    const values = selected ? selected.map(item => item.value) : []
+    setFormData({ ...formData, [name]: [...values] })
+  }
+
   const handleImageUrl = url => {
     setFormData({ ...formData, profile_picture: url })
   }
+
+  console.log('formdata', formData)
 
   return (
     <div className="login-register-form">
@@ -128,78 +151,24 @@ const RegisterBorrower = () => {
           {/* {errors.bio && <p className="help is-danger">{errors.bio.message}</p>} */}
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formActivities">
+        <Form.Group className="mb-3" controlId="formActivity">
           <Form.Label>Activities</Form.Label>
-          <Form.Check 
-            id="exercise"
-            type="checkbox" 
-            name="activity" 
-            label="exercise"
-            onChange={handleChange}
-            value={formData.activity}
+          <Select 
+            options={activityOptions}
+            isMulti
+            name="activity"
+            onChange={(selectedActivity) => handleMultiChange(selectedActivity, 'activity')}
           />
-          <Form.Check 
-            id="playtime"
-            type="checkbox" 
-            name="activity" 
-            label="playtime"
-            onChange={handleChange}
-            value={formData.activity}
-          />
-          <Form.Check 
-            id="company"
-            type="checkbox" 
-            name="activity" 
-            label="company"
-            onChange={handleChange}
-            value={formData.activity}
-          />
-          {/* {errors.activity && <p className="help is-danger">{errors.activity.message}</p>} */}
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formSchedule">
           <Form.Label>Schedule</Form.Label>
-          <Form.Check 
-            type="checkbox" 
+          <Select 
+            options={scheduleOptions}
+            isMulti
             name="schedule"
-            label="weekday - daytimes" 
-            onChange={handleChange}
-            value={formData.schedule}  
+            onChange={(selectedSchedule) => handleMultiChange(selectedSchedule, 'schedule')}
           />
-          <Form.Check 
-            type="checkbox" 
-            name="schedule"
-            label="weekday - evenings" 
-            onChange={handleChange}
-            value={formData.schedule}  
-          />
-          <Form.Check 
-            type="checkbox" 
-            name="schedule"
-            label="weekends" 
-            onChange={handleChange}
-            value={formData.schedule}  
-          />
-          <Form.Check 
-            type="checkbox" 
-            name="schedule"
-            label="holidays or overnight stays" 
-            onChange={handleChange}
-            value={formData.schedule}  
-          />
-          {/* {errors.schedule && <p className="help is-danger">{errors.schedule.message}</p>} */}
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formAccountType">
-          <Form.Label>Account type</Form.Label>
-          <Form.Control 
-            type="text" 
-            placeholder="account type" 
-            name="account_type" 
-            onChange={handleChange}
-            value={formData.account_type}
-          />
-          {/* {errors.password && <p className="help is-danger">{errors.account_type.message}</p>} */}
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formPassword">
@@ -212,7 +181,7 @@ const RegisterBorrower = () => {
             value={formData.password}
           />
           {/* {errors.password && <p className="help is-danger">{errors.password.message}</p>} */}
-        </Form.Group>
+        </Form.Group> 
 
         <Form.Group className="mb-3" controlId="formPasswordConfirmation">
           <Form.Label>Please confirm your password</Form.Label>
@@ -223,8 +192,9 @@ const RegisterBorrower = () => {
             onChange={handleChange}
             value={formData.password_confirmation}  
           />
-          {/* {errors.password_confirmation && <p className="help is-danger">{errors.password_confirmation.message}</p>} */}
-        </Form.Group>
+          {/* {errors.password_confirmation && <p className="help is-danger">{errors.password_confirmation.message}</p> */}
+        </Form.Group> 
+
 
         <ImageUploadField
           value={FormData.profile_pictue}
