@@ -10,6 +10,7 @@ import UserIndex from './components/users/UserIndex'
 import UserShow from './components/users/UserShow'
 import RegisterAnimal from './components/forms/RegisterAnimal'
 import ShowUserProfile from './components/forms/userProfile/ShowUserProfile'
+import ShowPetProfile from './components/forms/userProfile/ShowPetProfile'
 
 const App = () => {
 
@@ -22,6 +23,9 @@ const App = () => {
         </Route>
         <Route path="/animals/:id">
           <AnimalShow />
+        </Route>
+        <Route path="/pet-profile">
+          <ShowPetProfile />
         </Route>
         <Route path="/profile">
           <ShowUserProfile />

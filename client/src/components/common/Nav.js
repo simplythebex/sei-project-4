@@ -158,6 +158,7 @@ const Nav = () => {
                       </Dropdown.Toggle>
                       <Dropdown.Menu>
                         <Dropdown.Item href="/profile">My profile</Dropdown.Item>
+                        <Dropdown.Item href="/pet-profile">Pet profile</Dropdown.Item>
                         <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>

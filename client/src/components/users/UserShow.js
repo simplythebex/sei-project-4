@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 
 const UserShow = () => {
 
