@@ -1,0 +1,23 @@
+[
+{
+  "model": "activities.activity",
+  "pk": 1,
+  "fields": {
+    "name": "playtime"
+  }
+},
+{
+  "model": "activities.activity",
+  "pk": 2,
+  "fields": {
+    "name": "company"
+  }
+},
+{
+  "model": "activities.activity",
+  "pk": 3,
+  "fields": {
+    "name": "exercise"
+  }
+}
+]

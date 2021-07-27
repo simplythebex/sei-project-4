@@ -1,0 +1,216 @@
+[
+{
+  "model": "jwt_auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$RhIXTnzCWEcvKWzTeXR28H$19ia9EnoBQVEwBG7fNkrqx/n0sIAQIO2Ts9aGGtHw44=",
+    "last_login": "2021-07-22T13:16:47.695Z",
+    "is_superuser": true,
+    "username": "admin",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-07-22T13:16:36.319Z",
+    "email": "admin@email.com",
+    "first_name": "",
+    "last_name": "",
+    "account_type": "",
+    "bio": "",
+    "profile_picture": "",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [],
+    "schedule": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$KGjcTVK6q0kWshB0G4Hjfu$UOD5HN9+9n8z7gprvRUES5Au5KFtF4UYxkxO/bb5s0w=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "becca",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-24T20:04:42.197Z",
+    "email": "bex@email.com",
+    "first_name": "Bex",
+    "last_name": "Jones",
+    "account_type": "owner",
+    "bio": "I would love to have a cat but am unable to have one in the flat I rent. I would really enjoy playing with a friendly cat at the weekends.",
+    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627157031/SEI_56_Project4/blank-profile_mfj4vl.png",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      1,
+      2
+    ],
+    "schedule": [
+      3
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$IuGgEAnMEHs2xAsZjflxxx$dpfnySwWiNpZOkiks7N/Aa3lmyhFxaEP/Ma9GWm8zig=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "elle",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-24T20:29:40.264Z",
+    "email": "elle@email.com",
+    "first_name": "Elle",
+    "last_name": "Jones",
+    "account_type": "owner",
+    "bio": "I have a labradoodle puppy called Bear! I am looking for someone to keep him company in the daytime.",
+    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627157031/SEI_56_Project4/blank-profile_mfj4vl.png",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      2
+    ],
+    "schedule": [
+      1
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$j5b9ulwKF14Dj9Gh3FHjbw$MdoF5ZwEVy87utUUiNsGCE75e0CGaIAvA5wLRMyovoI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jan",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-24T20:34:10.050Z",
+    "email": "Jan@email.com",
+    "first_name": "Jan",
+    "last_name": "F",
+    "account_type": "owner",
+    "bio": "I have two golden retrievers that love walks and ice-cream!",
+    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627157031/SEI_56_Project4/blank-profile_mfj4vl.png",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      2
+    ],
+    "schedule": [
+      3
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$K8I7Lw24iqt8pAAf5qhO9d$ux7QBIJUurMqU/24i2sHGFzIzKmrczcSR1JjaEqKi+I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "hermina",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-25T11:08:13.518Z",
+    "email": "hermina@email.com",
+    "first_name": "Hermina",
+    "last_name": "Wong",
+    "account_type": "borrower",
+    "bio": "I am unable to have pets in my flat but I love cats and golden retrievers. I'd love to have some company on the weekends!",
+    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627157031/SEI_56_Project4/blank-profile_mfj4vl.png",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      2
+    ],
+    "schedule": [
+      3
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$1DYmuxZKHT0Gghy6ajIIyk$CvUhEMTvYWyF8odDZ/rcIqd807w6F+kOjEDZHIXAhZE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "bill",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-25T11:18:29.489Z",
+    "email": "bill@email.com",
+    "first_name": "Bill",
+    "last_name": "Smith",
+    "account_type": "borrower",
+    "bio": "I am looking to go for more walks and also love dogs. I'm looking to borrow a dog that I can take for walks after work!",
+    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627211857/SEI_56_Project4/rayul-_M6gy9oHgII-unsplash_prsbpj.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      3
+    ],
+    "schedule": [
+      2
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$zHadlg9GR2VxSn4w1UP5Ms$ZjrR/t/XgpQKGTGMzw1TlGKgzX36p3RmKG2riIuUS1o=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "kate",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-26T12:57:51.863Z",
+    "email": "kate@email.com",
+    "first_name": "Kate",
+    "last_name": "Jones",
+    "account_type": "borrower",
+    "bio": "I love cats!",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627304236/SEI_56_Project4/fkk4cfqupk7ber5poc2p.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      2
+    ],
+    "schedule": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$ElxOLYYD2pVvnKOyT7cFZ3$N+5ZUkGgr+sJY8tm2zGj/1xLxrRtxa0lx3n0rt9wBuQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "steve",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-26T15:57:03.130Z",
+    "email": "steve@email.com",
+    "first_name": "Steve",
+    "last_name": "Jones",
+    "account_type": "owner",
+    "bio": "I like dogs",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627315014/SEI_56_Project4/jldxfgtldoumh7qlqsyw.png",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      3
+    ],
+    "schedule": [
+      3
+    ]
+  }
+}
+]

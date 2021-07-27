@@ -1,0 +1,13 @@
+[
+{
+  "model": "requests.request",
+  "pk": 2,
+  "fields": {
+    "request_status": "pending",
+    "message": "please could I play with Monty on Tuesday?",
+    "created_at": "2021-07-27T13:20:33.646Z",
+    "animal": 10,
+    "owner": 14
+  }
+}
+]

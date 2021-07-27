@@ -1,0 +1,30 @@
+[
+{
+  "model": "schedules.schedule",
+  "pk": 1,
+  "fields": {
+    "name": "weekday - daytimes"
+  }
+},
+{
+  "model": "schedules.schedule",
+  "pk": 2,
+  "fields": {
+    "name": "weekday - evenings"
+  }
+},
+{
+  "model": "schedules.schedule",
+  "pk": 3,
+  "fields": {
+    "name": "weekends"
+  }
+},
+{
+  "model": "schedules.schedule",
+  "pk": 4,
+  "fields": {
+    "name": "holidays or overnight stays"
+  }
+}
+]

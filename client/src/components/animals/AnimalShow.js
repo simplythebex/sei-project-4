@@ -36,6 +36,10 @@ const AnimalShow = () => {
         } else {
           setRequests(filteredReq)
         }
+        const requestStatus = filteredReq.map(status => {
+          return status.request_status
+        })
+        console.log(requestStatus)
 
       } catch (err) {
         console.log(err)
@@ -76,7 +80,7 @@ const AnimalShow = () => {
                   <img className="profile-image" src={animal.owner.profile_picture} alt={animal.owner.username} />
                   Owned by {animal.owner.first_name}
                 </div>
-                {(!requests && requests !== 'none') ? 
+                {(requests !== 'none') ? 
                   <div className="req-status">Request: {requests.map(req => {
                     return req.request_status
                   })}</div>

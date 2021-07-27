@@ -1,0 +1,110 @@
+[
+{
+  "model": "animals.animal",
+  "pk": 5,
+  "fields": {
+    "animal_name": "Jeremy",
+    "animal_type": "Cat",
+    "animal_bio": "Jem loves sleeping in the sun and chasing his sister Scout. He loves head rubs and being given treats.",
+    "animal_age": 8,
+    "animal_image": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627156669/SEI_56_Project4/IMG_0899_j9li1x.jpg",
+    "owner": 10,
+    "activity": [
+      1
+    ],
+    "schedule": [
+      1
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 6,
+  "fields": {
+    "animal_name": "Scout",
+    "animal_type": "Cat",
+    "animal_bio": "Scout loves cuddles and always enjoys being petted. Her favourite activity is chasing a laser around.",
+    "animal_age": 8,
+    "animal_image": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627156672/SEI_56_Project4/cd899b03-495d-4970-9a27-332c8b02a0f0_xpk366.jpg",
+    "owner": 10,
+    "activity": [
+      1
+    ],
+    "schedule": [
+      1
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 7,
+  "fields": {
+    "animal_name": "Bear",
+    "animal_type": "Dog",
+    "animal_bio": "Bear is a labradoodle puppy. He loves running around the garden and having lots of cuddles.",
+    "animal_age": 1,
+    "animal_image": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627156695/SEI_56_Project4/eabd286e-5419-4cb9-ba57-9d2bb17b1a99_j4etth.jpg",
+    "owner": 11,
+    "activity": [
+      2
+    ],
+    "schedule": [
+      1
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 8,
+  "fields": {
+    "animal_name": "Matcha",
+    "animal_type": "Dog",
+    "animal_bio": "Matcha is a golden retriever. She loves going for walks and eating ice-cream!",
+    "animal_age": 2,
+    "animal_image": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627156678/SEI_56_Project4/fafdfba1-6979-4b9e-aeba-adeb668edf1b_rvalpr.jpg",
+    "owner": 12,
+    "activity": [
+      2
+    ],
+    "schedule": [
+      1
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 9,
+  "fields": {
+    "animal_name": "Maple",
+    "animal_type": "Dog",
+    "animal_bio": "Maple is a golden retriever. She loves swimming in the sea, digging and playing with her toys.",
+    "animal_age": 1,
+    "animal_image": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627156683/SEI_56_Project4/40e3fbf7-1209-4b41-9a61-23ad30af3576_ag5aox.jpg",
+    "owner": 12,
+    "activity": [
+      2
+    ],
+    "schedule": [
+      1
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 10,
+  "fields": {
+    "animal_name": "Monty",
+    "animal_type": "dog",
+    "animal_bio": "Monty is a labradoodle puppy. He enjoys playing with his family and taking naps!",
+    "animal_age": 1,
+    "animal_image": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627315914/SEI_56_Project4/fxyqkclovzqpdxma5avc.jpg",
+    "owner": 16,
+    "activity": [
+      2
+    ],
+    "schedule": [
+      1
+    ]
+  }
+}
+]
