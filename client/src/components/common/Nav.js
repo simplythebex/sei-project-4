@@ -36,8 +36,6 @@ const Nav = () => {
     getCurrentUser()
   }, [])
 
-  console.log(userProfile)
-
   useEffect(() => {
   }, [location.pathname])
 

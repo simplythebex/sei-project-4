@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import AnimalCard from './AnimalCard'
+import { getUserId } from '../helpers/auth'
 
 const AnimalIndex = () => {
 
@@ -22,18 +23,22 @@ const AnimalIndex = () => {
     }
     getData()
   }, [])
-  
-  console.log('animals on state', animals)
+
+  const filteredAnimals = animals.filter(filtered => {
+    return filtered.owner.id !==  getUserId()
+  })
+
+  console.log('filtered animals', filteredAnimals)
 
   return (
     <Container className="animal-index">
       <Row>
-        <h5>{animals.length} pets found</h5>
+        <h5>{filteredAnimals.length} pets found</h5>
       </Row>
       <Col>
-        {animals.length > 0 ?
+        {filteredAnimals.length > 0 ?
           <Row>
-            {animals.map(animal => {
+            {filteredAnimals.map(animal => {
               return <AnimalCard key={animal.id} {...animal} /> 
             })}
           </Row>

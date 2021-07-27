@@ -11,6 +11,7 @@ import UserShow from './components/users/UserShow'
 import RegisterAnimal from './components/forms/RegisterAnimal'
 import ShowUserProfile from './components/forms/userProfile/ShowUserProfile'
 import ShowPetProfile from './components/forms/userProfile/ShowPetProfile'
+import EditPet from './components/forms/EditPet'
 
 const App = () => {
 
@@ -18,6 +19,9 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Switch>
+        <Route path="/edit-animal/:id">
+          <EditPet />
+        </Route>
         <Route path="/borrowers/:id">
           <UserShow />
         </Route>

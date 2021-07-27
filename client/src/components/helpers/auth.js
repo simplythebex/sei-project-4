@@ -22,3 +22,11 @@ export const userIsAuthenticated = () => {
   const now = Math.round(Date.now() / 1000)
   return now < payload.exp
 }
+
+// get userId
+
+export const getUserId = () => {
+  const payload = getPayload()
+  if (!payload) return 
+  return payload.sub
+}

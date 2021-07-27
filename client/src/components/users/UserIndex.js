@@ -3,6 +3,7 @@ import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import UserCard from './UserCard'
+import { getUserId } from '../helpers/auth'
 
 
 const UserIndex = () => {
@@ -25,7 +26,7 @@ const UserIndex = () => {
   
   console.log('users on state', users)
 
-  const borrowers = users.filter(borrower => borrower.account_type === 'borrower').reverse()
+  const borrowers = users.filter(borrower => borrower.account_type === 'borrower' && borrower.id !==  getUserId()).reverse()
 
   console.log(borrowers)
 

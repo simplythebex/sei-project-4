@@ -41,7 +41,7 @@ const ShowUserProfile = () => {
             <div className="information">
               <div className="info-header">
                 <h3>{userProfile.first_name}</h3>
-                <Button variant="secondary"><span className="icon"><i className="fas fa-edit"></i></span>Edit</Button>
+                {/* <Button variant="secondary"><span className="icon"><i className="fas fa-edit"></i></span>Edit</Button> */}
               </div>
               <hr />
               <div className="date-joined">

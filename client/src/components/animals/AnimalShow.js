@@ -4,12 +4,21 @@ import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
+import SendRequest from '../forms/SendRequest'
+import { getUserId } from '../helpers/auth'
 
 const AnimalShow = () => {
 
   const [animal, setAnimal] = useState(null)
   const [errors, setErrors] = useState(false)
+  const [requests, setRequests] = useState(null)
+  const [requestErrors, setRequestErrors] = useState(null)
+  const [show, setShow] = useState(false)
   const { id } = useParams()
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   console.log(id)
   
@@ -19,15 +28,29 @@ const AnimalShow = () => {
         const { data } = await axios.get(`/api/animals/${id}/`)
         setAnimal(data)
         console.log('data', data)
+        const filteredReq = data.requests.filter(req => {
+          return req.owner.id === getUserId()
+        })
+        if (filteredReq.length < 1) {
+          setRequests('none')
+        } else {
+          setRequests(filteredReq)
+        }
+
       } catch (err) {
         console.log(err)
         setErrors(true)
+        setRequestErrors(true)
       }
     }
     getData()
   }, [id])
 
-  console.log('animal data', animal)
+  const handleClick = () => {
+    handleShow()
+  }
+
+  console.log('requests', requests)
 
   return (
     <Container className="animal-show">
@@ -53,13 +76,31 @@ const AnimalShow = () => {
                   <img className="profile-image" src={animal.owner.profile_picture} alt={animal.owner.username} />
                   Owned by {animal.owner.first_name}
                 </div>
-                <Button variant="secondary">Send {animal.owner.first_name} a request</Button>
+                {(!requests && requests !== 'none') ? 
+                  <div className="req-status">Request: {requests.map(req => {
+                    return req.request_status
+                  })}</div>
+                  :
+                  <Button variant="secondary" onClick={handleClick}>Send {animal.owner.first_name} a request</Button>
+                }
               </div>
             </div>
           </div>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Send a request to {animal.owner.first_name}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <SendRequest 
+                id = { animal.id }
+                name = { animal.animal_name }
+                handleClose = { handleClose }
+              />
+            </Modal.Body>
 
+          </Modal>
         </div>
-        : <h2>{errors ? 'Something has gone wrong!' : 'loading... 🐈 🦮 🐇'}</h2>
+        : <h2>{errors || requestErrors ? 'Something has gone wrong!' : 'loading... 🐈 🦮 🐇'}</h2>
       }
 
     </Container>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import { getTokenFromLocalStorage, getPayload } from '../../helpers/auth'
-import Button from 'react-bootstrap/Button'
 
 const ShowPetProfile = () => {
 
@@ -47,11 +47,11 @@ const ShowPetProfile = () => {
                 <div className="information">
                   <div className="info-header">
                     <h3>{pet.animal_name}</h3>
-                    <Button variant="secondary"><span className="icon"><i className="fas fa-edit"></i></span>Edit</Button>
+                    <Link to={`/edit-animal/${pet.id}`}><span className="icon"><i className="fas fa-edit"></i></span>Edit</Link>
                   </div>
                   <hr />
                   <div className="date-joined">
-                    <p>Member since: {(new Date(String(userProfile.date_joined)).toLocaleString()).slice(0, 10)}</p>
+                    <p>Pet type: {pet.animal_type}</p>
                   </div>
                   <hr />
                   <div className="needs">

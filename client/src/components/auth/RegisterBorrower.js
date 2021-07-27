@@ -52,8 +52,7 @@ const RegisterBorrower = () => {
   })
 
   const handleChange = (event) => {
-    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-    const newFormData = { ...formData, [event.target.name]: value }
+    const newFormData = { ...formData, [event.target.name]: event.target.value }
     const newErrors = { ...errors, [event.target.name]: '' }
     console.log('new form data', newFormData)
     setFormData(newFormData)

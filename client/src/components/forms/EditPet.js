@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import { ImageUploadField } from '../../ImageUploadField'
-import Select from 'react-select'
 import { getTokenFromLocalStorage } from '../helpers/auth'
+import Form from 'react-bootstrap/form'
+import Button from 'react-bootstrap/esm/Button'
+import Select from 'react-select'
+import { ImageUploadField } from '../../ImageUploadField'
 
-const RegisterAnimal = () => {
+const EditPet = () => {
 
+  const { id } = useParams()
+  const history = useHistory()
+  
   const activityOptions = [
     { value: 2, label: 'Company' },
     { value: 3, label: 'Exercise' },
@@ -22,8 +25,6 @@ const RegisterAnimal = () => {
     { value: 4, label: 'Holidays or overnight stays' }
   ]
 
-  const history = useHistory()
-
   const [formData, setFormData] = useState({
     animal_name: '',
     animal_type: '',
@@ -34,50 +35,62 @@ const RegisterAnimal = () => {
     animal_image: '',
   })
 
+  const [errors, setErrors] = useState({
+    animal_name: '',
+    animal_type: '',
+    animal_bio: '',
+    animal_age: '',
+    activity: [],
+    schedule: [],
+    animal_image: '',
+  })
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get(`/api/animals/${id}/`)
+      setFormData(data)
+      console.log('data', data)
+    }
+    getData()
+  }, [id])
+
+  console.log('form data', formData)
+
   const handleChange = (event) => {
-    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-    const newFormData = { ...formData, [event.target.name]: value }
-    console.log('new form data', newFormData)
-    setFormData(newFormData)
+    const updatedFormData = { ...formData, [event.target.name]: event.target.value }
+    const newErrors = { ...errors, [event.target.name]: '' }
+    setFormData(updatedFormData)
+    setErrors(newErrors)
   }
-
-  const handleMultiChange = (selected, name) => {
-    console.log('selected', selected)
-    console.log('name', name)
-    const values = selected ? selected.map(item => item.value) : []
-    setFormData({ ...formData, [name]: [...values] })
-  }
-
-  const handleImageUrl = url => {
-    setFormData({ ...formData, animal_image: url })
-  }
-
-  console.log('formdata', formData)
-  console.log('token', getTokenFromLocalStorage())
-
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      console.log('formData->', formData)
-      await axios.post(
-        '/api/animals/', 
-        formData, 
-        {
-          headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
-        }
-      )
-      history.push('/register-animal')
+      await axios.put(`/api/animals/${id}/`, formData, {
+        headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
+      })
+      history.push('/pet-profile')
     } catch (err) {
-      console.log('err', err)
+      console.log('error response', err.response)
+      setErrors(err.response.data.errors)
     }
+  }
+  console.log('errors', errors)
+
+  const handleImageUrl = url => {
+    setFormData({ ...formData, image: url })
+  }
+
+  const handleMultiChange = (selected, name) => {
+    const values = selected ? selected.map(item => item.value) : []
+    setFormData({ ...formData, [name]: [...values] })
   }
 
   return (
     <div className="register-animal">
       <Form onSubmit={handleSubmit}>
 
-        <h2>Register animal</h2>
+        <h2>Edit pet</h2>
 
         <Form.Group className="mb-3" controlId="formAnimalName">
           <Form.Label>What is your pet called?</Form.Label>
@@ -155,13 +168,14 @@ const RegisterAnimal = () => {
         />
 
 
-        <Button variant="secondary" type="submit">
+        <Button varient="light" type="submit">
           Submit
         </Button>
 
       </Form>
     </div>
+    
   )
 }
 
-export default RegisterAnimal
+export default EditPet
