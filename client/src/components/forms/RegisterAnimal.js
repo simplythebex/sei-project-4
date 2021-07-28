@@ -7,20 +7,20 @@ import { ImageUploadField } from '../../ImageUploadField'
 import Select from 'react-select'
 import { getTokenFromLocalStorage } from '../helpers/auth'
 
-const RegisterAnimal = () => {
+const activityOptions = [
+  { value: 2, label: 'Company' },
+  { value: 3, label: 'Exercise' },
+  { value: 1, label: 'Playtime' }
+]
 
-  const activityOptions = [
-    { value: 2, label: 'Company' },
-    { value: 3, label: 'Exercise' },
-    { value: 1, label: 'Playtime' }
-  ]
-  
-  const scheduleOptions = [
-    { value: 1, label: 'Weekday - daytimes' },
-    { value: 2, label: 'Weekday - evenings' },
-    { value: 3, label: 'Weekends' },
-    { value: 4, label: 'Holidays or overnight stays' }
-  ]
+const scheduleOptions = [
+  { value: 1, label: 'Weekday - daytimes' },
+  { value: 2, label: 'Weekday - evenings' },
+  { value: 3, label: 'Weekends' },
+  { value: 4, label: 'Holidays or overnight stays' }
+]
+
+const RegisterAnimal = () => {
 
   const history = useHistory()
 
@@ -35,8 +35,7 @@ const RegisterAnimal = () => {
   })
 
   const handleChange = (event) => {
-    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-    const newFormData = { ...formData, [event.target.name]: value }
+    const newFormData = { ...formData, [event.target.name]: event.target.value }
     console.log('new form data', newFormData)
     setFormData(newFormData)
   }
@@ -67,7 +66,7 @@ const RegisterAnimal = () => {
           headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
         }
       )
-      history.push('/register-animal')
+      history.push('/borrowers')
     } catch (err) {
       console.log('err', err)
     }
@@ -112,7 +111,7 @@ const RegisterAnimal = () => {
             <option> - select an animal - </option>
             <option value="cat">Cat</option>
             <option value="dog">Dog</option>
-            <option value="rabbit">Rebbit</option>
+            <option value="rabbit">Rabbit</option>
           </Form.Select>
         </Form.Group>
 

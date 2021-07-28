@@ -5,6 +5,9 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { ImageUploadField } from '../../ImageUploadField'
 import Select from 'react-select'
+import { setTokenToLocalStorage } from '../helpers/auth'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 const activityOptions = [
   { value: 2, label: 'Company' },
@@ -37,6 +40,11 @@ const RegisterOwner = () => {
     profile_picture: '',
   })
 
+  const [loginFormData, setLoginFormData] = useState({
+    email: '',
+    password: '',
+  })
+
   const [errors, setErrors] = useState({
     email: '',
     username: '',
@@ -52,12 +60,16 @@ const RegisterOwner = () => {
   })
 
   const handleChange = (event) => {
-    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-    const newFormData = { ...formData, [event.target.name]: value }
+    const newFormData = { ...formData, [event.target.name]: event.target.value }
     const newErrors = { ...errors, [event.target.name]: '' }
     console.log('new form data', newFormData)
     setFormData(newFormData)
     setErrors(newErrors)
+    if (event.target.name === 'email' || event.target.name === 'password') {
+      const newLoginFormData = { ...loginFormData, [event.target.name]: event.target.value }
+      console.log('new', newLoginFormData)
+      setLoginFormData(newLoginFormData)
+    }
   }
 
   const handleSubmit = async (event) => {
@@ -65,6 +77,8 @@ const RegisterOwner = () => {
     try {
       console.log('formData->', formData)
       await axios.post('/api/auth/register/', formData)
+      const { data } = await axios.post('/api/auth/login/', loginFormData)
+      setTokenToLocalStorage(data.token)
       history.push('/register-animal')
     } catch (err) {
       console.log('err.response', err.response)
@@ -115,29 +129,41 @@ const RegisterOwner = () => {
           {/* {errors.username && <p className="help is-danger">{errors.username.message}</p>} */}
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formFirstName">
-          <Form.Label>Your first name</Form.Label>
-          <Form.Control 
-            type="text" 
-            placeholder="Jane" 
-            name="first_name" 
-            onChange={handleChange}
-            value={formData.first_name}  
-          />
-          {/* {errors.first_name && <p className="help is-danger">{errors.first_name.message}</p>} */}
-        </Form.Group>
+        <Row>
+          <Col>
+            <Form.Group className="mb-3" controlId="formFirstName">
+              <Form.Label>Your first name</Form.Label>
+              <Form.Control 
+                type="text" 
+                placeholder="Jane" 
+                name="first_name" 
+                onChange={handleChange}
+                value={formData.first_name}  
+              />
+              {/* {errors.first_name && <p className="help is-danger">{errors.first_name.message}</p>} */}
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formLastName">
-          <Form.Label>Your last name</Form.Label>
-          <Form.Control 
-            type="text" 
-            placeholder="Doe" 
-            name="last_name" 
-            onChange={handleChange}
-            value={formData.last_name}
-          />
-          {/* {errors.last_name && <p className="help is-danger">{errors.last_name.message}</p>} */}
-        </Form.Group>
+          </Col>
+
+          <Col>
+
+            <Form.Group className="mb-3" controlId="formLastName">
+              <Form.Label>Your last name</Form.Label>
+              <Form.Control 
+                type="text" 
+                placeholder="Doe" 
+                name="last_name" 
+                onChange={handleChange}
+                value={formData.last_name}
+              />
+              {/* {errors.last_name && <p className="help is-danger">{errors.last_name.message}</p>} */}
+            </Form.Group>
+          
+          </Col>
+
+
+
+        </Row>
 
         <Form.Group className="mb-3" controlId="formBioName">
           <Form.Label>Tell us about yourself</Form.Label>
@@ -203,7 +229,7 @@ const RegisterOwner = () => {
         />
 
 
-        <Button varient="light" type="submit">
+        <Button variant="secondary" type="submit">
           Submit
         </Button>
 

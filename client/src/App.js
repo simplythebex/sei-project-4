@@ -13,6 +13,7 @@ import ShowUserProfile from './components/userProfile/ShowUserProfile'
 import ShowPetProfile from './components/userProfile/ShowPetProfile'
 import EditPet from './components/forms/EditPet'
 import Requests from './components/userProfile/Requests'
+import Footer from './components/common/Footer'
 
 const App = () => {
 
@@ -57,6 +58,7 @@ const App = () => {
           <Home />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>  
   )
 }

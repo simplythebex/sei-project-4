@@ -5,5 +5,5 @@ from animals.serializers.common import AnimalSerializer
 
 class PopulatedRequestSerializer(RequestSerializer):
     owner = UserSerializer()
-    animal = AnimalSerializer(many=True)
+    animal = AnimalSerializer()
     

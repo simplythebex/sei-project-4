@@ -5,6 +5,9 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { ImageUploadField } from '../../ImageUploadField'
 import Select from 'react-select'
+import { setTokenToLocalStorage } from '../helpers/auth'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 const activityOptions = [
   { value: 2, label: 'Company' },
@@ -37,6 +40,11 @@ const RegisterBorrower = () => {
     profile_picture: '',
   })
 
+  const [loginFormData, setLoginFormData] = useState({
+    email: '',
+    password: '',
+  })
+
   const [errors, setErrors] = useState({
     email: '',
     username: '',
@@ -57,6 +65,11 @@ const RegisterBorrower = () => {
     console.log('new form data', newFormData)
     setFormData(newFormData)
     setErrors(newErrors)
+    if (event.target.name === 'email' || event.target.name === 'password') {
+      const newLoginFormData = { ...loginFormData, [event.target.name]: event.target.value }
+      console.log('new', newLoginFormData)
+      setLoginFormData(newLoginFormData)
+    }
   }
 
   const handleSubmit = async (event) => {
@@ -64,12 +77,13 @@ const RegisterBorrower = () => {
     try {
       console.log('formData->', formData)
       await axios.post('/api/auth/register/', formData)
+      const { data } = await axios.post('/api/auth/login/', loginFormData)
+      setTokenToLocalStorage(data.token)
       history.push('/animals')
     } catch (err) {
       console.log('err.response', err.response)
       setErrors(err.response.data.errors)
     }
-
     // console.log('errors', errors)
   }
 
@@ -85,6 +99,7 @@ const RegisterBorrower = () => {
   }
 
   console.log('formdata', formData)
+  console.log('loginformdata', loginFormData)
 
   return (
     <div className="login-register-form">
@@ -114,29 +129,36 @@ const RegisterBorrower = () => {
           {/* {errors.username && <p className="help is-danger">{errors.username.message}</p>} */}
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formFirstName">
-          <Form.Label>Your first name</Form.Label>
-          <Form.Control 
-            type="text" 
-            placeholder="Jane" 
-            name="first_name" 
-            onChange={handleChange}
-            value={formData.first_name}  
-          />
-          {/* {errors.first_name && <p className="help is-danger">{errors.first_name.message}</p>} */}
-        </Form.Group>
+        <Row>
+          <Col>
+            <Form.Group className="mb-3" controlId="formFirstName">
+              <Form.Label>Your first name</Form.Label>
+              <Form.Control 
+                type="text" 
+                placeholder="Jane" 
+                name="first_name" 
+                onChange={handleChange}
+                value={formData.first_name}  
+              />
+              {/* {errors.first_name && <p className="help is-danger">{errors.first_name.message}</p>} */}
+            </Form.Group>
+          
+          </Col>
+          <Col>
+            <Form.Group className="mb-3" controlId="formLastName">
+              <Form.Label>Your last name</Form.Label>
+              <Form.Control 
+                type="text" 
+                placeholder="Doe" 
+                name="last_name" 
+                onChange={handleChange}
+                value={formData.last_name}
+              />
+              {/* {errors.last_name && <p className="help is-danger">{errors.last_name.message}</p>} */}
+            </Form.Group>
+          </Col>
 
-        <Form.Group className="mb-3" controlId="formLastName">
-          <Form.Label>Your last name</Form.Label>
-          <Form.Control 
-            type="text" 
-            placeholder="Doe" 
-            name="last_name" 
-            onChange={handleChange}
-            value={formData.last_name}
-          />
-          {/* {errors.last_name && <p className="help is-danger">{errors.last_name.message}</p>} */}
-        </Form.Group>
+        </Row>
 
         <Form.Group className="mb-3" controlId="formBioName">
           <Form.Label>Tell us about yourself</Form.Label>
@@ -202,7 +224,7 @@ const RegisterBorrower = () => {
         />
 
 
-        <Button varient="light" type="submit">
+        <Button variant="secondary" type="submit">
           Submit
         </Button>
 

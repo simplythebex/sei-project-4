@@ -11,6 +11,11 @@ const AnimalIndex = () => {
 
   const [animals, setAnimals] = useState([])
   const [hasError, setHasError] = useState(false)
+  const [formData, setFormData] = useState({
+    type: [],
+    activities: [],
+    schedule: [],
+  })
 
   const activities = [
     'exercise', 'company', 'playtime'
@@ -43,13 +48,67 @@ const AnimalIndex = () => {
 
   console.log('filtered animals', filteredAnimals)
 
+  const handleChange = (event) => {
+    const newFormData = { ...formData, [event.target.name]: event.target.value }
+    console.log('new form data', newFormData)
+    setFormData(newFormData)
+  }
+
+  console.log('Form Data', formData)
+
+  // const form = document.querySelector('form')
+  // const inputs = form.querySelectorAll('input[type="checkbox"]')
+
+  // console.log('form', form)
+  // console.log('inputs', inputs)
+
+  // const filters = {}
+
+  // const updateFilters = (event) => {
+  //   const { name, value, checked } = event.target
+  //   if (checked) {
+  //     if (!filters[name]) {
+  //       filters[name] = [value]
+  //     } else if (!filters[name].includes(value)) {
+  //       filters[name].push(value)
+  //     }
+  //   } else {
+  //     filters[name] = filters[name].filter(val => val !== value)
+  //     if (filters[name].length < 1) delete filters[name]
+  //   }
+  //   filterAnimals()
+  // }
+
+  // const filterAnimals = () => {
+  //   const filterKeys = Object.keys(filters)
+  //   const filteredAnimals = animals.filter(animal => {
+  //     let filterMatch = true
+  //     filterKeys.forEach(key => {
+  //       if (filterMatch) {
+  //         let keyMatch = false
+  //         animal[key].forEach(keyItem => {
+  //           if (filters[key].includes(keyItem)) {
+  //             keyMatch = true
+  //           }
+  //         })
+  //         filterMatch = keyMatch
+  //       }
+  //     })
+  //     if (filterMatch) return animal
+  //   })
+  //   let results = ''
+  //   filteredAnimals.forEach(a => results += `${a.name}`)
+  //   console.log('results', results)
+  // }
+  
+
   return (
     <Container className="animal-index">
       <Row>
         <Col className="sort">
           <h4>Filter</h4>
           <hr />
-          <Form>
+          <Form id="form">
             <Form.Group>
               <Form.Label>
                 <span className="icon"><i className="fas fa-cat"></i></span>Pet type
@@ -61,6 +120,9 @@ const AnimalIndex = () => {
                       type={'checkbox'}
                       id={`${type}`}
                       label={`${type}`}
+                      name={'type'}
+                      value={`${type}`}
+                      onChange={handleChange}
                     />
                   </div>
 
@@ -79,7 +141,10 @@ const AnimalIndex = () => {
                     <Form.Check
                       type={'checkbox'}
                       id={`${type}`}
+                      name={'activities'}
                       label={`${type}`}
+                      value={`${type}`}
+                      onChange={handleChange}
                     />
                   </div>
 
@@ -99,6 +164,9 @@ const AnimalIndex = () => {
                       type={'checkbox'}
                       id={`${type}`}
                       label={`${type}`}
+                      name={'schedule'}
+                      value={`${type}`}
+                      onChange={handleChange}
                     />
                   </div>
 
@@ -112,7 +180,7 @@ const AnimalIndex = () => {
           </Form>
       
         </Col>
-        <Col xs={10}>
+        <Col xs={10} className="right">
           <Row>
             <h5>{filteredAnimals.length} pets found</h5>
           </Row>

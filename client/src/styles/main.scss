@@ -7,6 +7,11 @@
   padding: 0;
   font-family: 'Roboto Condensed', sans-serif;
 }
+
+html, body {
+  height: 100%;
+}
+
 p {
   padding: 0;
   margin: 0;
@@ -160,8 +165,6 @@ p {
   align-items: center;
   height: 100%;
   width: 100%;
-  left: 0;
-  position: fixed;
 
   h2 {
     text-align: center;
@@ -176,30 +179,41 @@ p {
   }
 }
 
-// index styling
+// animal index styling
 
 .animal-index {
   margin-top: 40px;
   .row {
-    .card {
-      margin: 15px;
-      padding: 0;
-      .card-img {
-        height: 300px;
-        width: 302px;
-        object-fit: cover;
-      }
-      .card-title {
-        padding: 5px;
-      }
-      .card-text {
-        padding: 0 5px;
-      }
+    .sort {
+      position: fixed;
+      margin-top: 5px;
+    }
+    .right {
+      position: relative;
+      left: 300px;
+      background-color: white;
+      .card {
+        margin: 15px;
+        padding: 0;
+        .card-img {
+          height: 300px;
+          width: 302px;
+          object-fit: cover;
+        }
+        .card-title {
+          padding: 5px;
+        }
+        .card-text {
+          padding: 0 5px;
+        }
+  
+        a {
+          text-decoration: none;
+          color: black;
+        }
 
-      a {
-        text-decoration: none;
-        color: black;
-      }
+    }
+
 
     }
   }
@@ -249,35 +263,46 @@ p {
 .user-index {
   margin-top: 40px;
   .row {
-    .card {
-      margin: 10px;
-      padding: 0;
-      .big-card {
-        display: flex;
-        align-items: center;
-        .card-img {
-          height: 200px;
-          width: 200px;
-          object-fit: cover;
-        }
-        .information {
-          padding: 0 10px;
-          .card-title {
-            padding: 5px;
-          }
-          .card-text {
-            padding: 0 5px;
-          }
-        }
-      }
-
-
-      a {
-        text-decoration: none;
-        color: black;
-      }
-
+    .sort {
+      position: fixed;
+      margin-top: 5px;
     }
+    .right {
+      position: relative;
+      left: 300px;
+      background-color: white;
+      padding-left: 30px;
+      .card {
+        margin: 10px;
+        padding: 0;
+        .big-card {
+          display: flex;
+          align-items: center;
+          .card-img {
+            height: 200px;
+            max-width: 200px;
+            min-width: 200px;
+            object-fit: cover;
+          }
+          .information {
+            padding: 0 10px;
+            .card-title {
+              padding: 5px;
+            }
+            .card-text {
+              padding: 0 5px;
+            }
+          }
+        }
+  
+  
+        a {
+          text-decoration: none;
+          color: black;
+        }
+    }
+  }
+
   }
 }
 
@@ -318,6 +343,7 @@ p {
 
 // user profile styling 
 .user-profile{
+  height: 610px;
   .top {
     display: flex;
     justify-content: space-evenly;
@@ -414,4 +440,69 @@ p {
   }
 }
 
+// view requests page
+.request-page {
+  height: 560px;
+  h3 {
+    margin-top: 50px;
+  }
+  .accordion {
+    margin-top: 20px;
+    .accordion-header {
+      img {
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid lightgrey;
+        margin-right: 10px;
+      }
+      p {
+        color: lightslategrey;
+      }
+    }
+    .accordion-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .content {
+        display: flex;
+        align-items: center;
+        .left {
+          margin-right: 10px;
+          .time {
+            color: lightslategrey;
+            margin-right: 10px;
+          }
+        }
+      }
+      button {
+        margin: 0 5px;
+      }
+    }
+  }
+}
 
+// footer styling 
+
+footer {
+  background-color: #444444;
+  bottom:0;
+  left:0;
+  height: 50px;
+  width: 100%;
+  margin-top: 30px;
+  .icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      color: white;
+      .icon {
+        font-size: 1.5em;
+        margin-top: 5px;
+        padding: 0 10px;
+      }
+    }
+  }
+}

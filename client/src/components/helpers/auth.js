@@ -24,9 +24,13 @@ export const userIsAuthenticated = () => {
 }
 
 // get userId
-
 export const getUserId = () => {
   const payload = getPayload()
   if (!payload) return 
   return payload.sub
+}
+
+// sets token to local storage 
+export const setTokenToLocalStorage = (token) => {
+  window.localStorage.setItem('token', token)
 }

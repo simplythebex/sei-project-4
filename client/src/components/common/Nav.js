@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown'
-import { getTokenFromLocalStorage, getUserId, userIsAuthenticated } from '../helpers/auth'
+import { getTokenFromLocalStorage, setTokenToLocalStorage, getUserId, userIsAuthenticated } from '../helpers/auth'
 
 const Nav = () => {
 
@@ -32,9 +32,6 @@ const Nav = () => {
       }
     }
     getCurrentUser()
-  }, [])
-
-  useEffect(() => {
   }, [location.pathname])
 
   // handles sidebar open/close
@@ -54,10 +51,6 @@ const Nav = () => {
     setFormData(newFormData)
   }
 
-  const setTokenToLocalStorage = (token) => {
-    window.localStorage.setItem('token', token)
-  }
-
   const handleFocus = () => {
     setError(false)
   }
@@ -68,7 +61,7 @@ const Nav = () => {
     try {
       const { data } = await axios.post('/api/auth/login/', formData)
       setTokenToLocalStorage(data.token)
-      history.push('/profile')
+      history.push('/borrowers')
       setShow(false)
       console.log('response', data)
     } catch (err) {
@@ -87,11 +80,20 @@ const Nav = () => {
   return (
     <div className="nav-container">
       <div className="navbar">
-        <a href="/">
-          <div className="nav-logo">
-            <img src={PetPalLogo} alt="PetPal logo" />
-          </div>
-        </a>
+        {!userIsAuthenticated 
+          ? 
+          <a href="/">
+            <div className="nav-logo">
+              <img src={PetPalLogo} alt="PetPal logo" />
+            </div>
+          </a>
+          :
+          <a href="/profile">
+            <div className="nav-logo">
+              <img src={PetPalLogo} alt="PetPal logo" />
+            </div>
+          </a>
+        }
         <div className="nav-links">
           {!userIsAuthenticated() ? 
             <>

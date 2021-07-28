@@ -63,7 +63,7 @@ const UserIndex = () => {
           </Form>
       
         </Col>
-        <Col>
+        <Col className="right">
           <h5>{borrowers.length} borrowers found</h5>
           <Row>
             {borrowers.length > 0 ?
