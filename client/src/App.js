@@ -9,9 +9,10 @@ import AnimalShow from './components/animals/AnimalShow'
 import UserIndex from './components/users/UserIndex'
 import UserShow from './components/users/UserShow'
 import RegisterAnimal from './components/forms/RegisterAnimal'
-import ShowUserProfile from './components/forms/userProfile/ShowUserProfile'
-import ShowPetProfile from './components/forms/userProfile/ShowPetProfile'
+import ShowUserProfile from './components/userProfile/ShowUserProfile'
+import ShowPetProfile from './components/userProfile/ShowPetProfile'
 import EditPet from './components/forms/EditPet'
+import Requests from './components/userProfile/Requests'
 
 const App = () => {
 
@@ -27,6 +28,9 @@ const App = () => {
         </Route>
         <Route path="/animals/:id">
           <AnimalShow />
+        </Route>
+        <Route path="/requests">
+          <Requests />
         </Route>
         <Route path="/pet-profile">
           <ShowPetProfile />

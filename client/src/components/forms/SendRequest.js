@@ -42,7 +42,7 @@ const SendRequest = ({ id, name, handleClose }) => {
     <>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formMessage">
-          <Form.Label>Add a message to your request</Form.Label>
+          <Form.Label>Add a message to your request: </Form.Label>
           <Form.Control 
             type="textarea"
             name='message'

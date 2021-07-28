@@ -4,12 +4,18 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import UserCard from './UserCard'
 import { getUserId } from '../helpers/auth'
+import Form from 'react-bootstrap/Form'
+import Col from 'react-bootstrap/Col'
 
 
 const UserIndex = () => {
 
   const [users, setusers] = useState([])
   const [hasError, setHasError] = useState(false)
+
+  const schedule = [
+    'weekday - daytimes', 'weekday - evenings', 'weekends', 'holidays or overnight stays'
+  ]
 
   useEffect(() => {
     const getData = async () => {
@@ -33,18 +39,44 @@ const UserIndex = () => {
   return (
     <Container className="user-index">
       <Row>
-        <h5>{borrowers.length} borrowers found</h5>
-      </Row>
-      <Row>
-        {borrowers.length > 0 ?
+        <Col className="sort">
+          <h4>Filter</h4>
+          <hr />
+          <Form>
+            <Form.Group>
+              <Form.Label>
+                <span className="icon"><i className="fas fa-calendar-alt"></i></span>Availability
+              </Form.Label>
+              {schedule.map(type => {
+                return (
+                  <div key={`${type}`}>
+                    <Form.Check
+                      type={'checkbox'}
+                      id={`${type}`}
+                      label={`${type}`}
+                    />
+                  </div>
+
+                )
+              })}
+            </Form.Group>
+          </Form>
+      
+        </Col>
+        <Col>
+          <h5>{borrowers.length} borrowers found</h5>
           <Row>
-            {borrowers.map(borrower => {
-              return <UserCard key={borrower.id} {...borrower} /> 
-            })}
+            {borrowers.length > 0 ?
+              <Row>
+                {borrowers.map(borrower => {
+                  return <UserCard key={borrower.id} {...borrower} /> 
+                })}
+              </Row>
+              :
+              <h2>{hasError ? 'Something has gone wrong!' : 'loading... 🐈 🦮 🐇'}</h2>
+            }
           </Row>
-          :
-          <h2>{hasError ? 'Something has gone wrong!' : 'loading... 🐈 🦮 🐇'}</h2>
-        }
+        </Col>
       </Row>
     </Container>
   )

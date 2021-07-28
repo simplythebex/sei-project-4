@@ -81,9 +81,14 @@ const AnimalShow = () => {
                   Owned by {animal.owner.first_name}
                 </div>
                 {(requests !== 'none') ? 
-                  <div className="req-status">Request: {requests.map(req => {
-                    return req.request_status
-                  })}</div>
+                  <>
+                    { 
+                      requests &&
+                    <div className="req-status"><span className="icon"><i className="fas fa-paper-plane"></i></span>Request {requests.map(req => {
+                      return req.request_status
+                    })}</div>
+                    }
+                  </>
                   :
                   <Button variant="secondary" onClick={handleClick}>Send {animal.owner.first_name} a request</Button>
                 }

@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown'
-import { getPayload, getTokenFromLocalStorage, userIsAuthenticated } from '../helpers/auth'
+import { getTokenFromLocalStorage, getUserId, userIsAuthenticated } from '../helpers/auth'
 
 const Nav = () => {
 
@@ -16,13 +16,11 @@ const Nav = () => {
   const [userProfile, setUserProfile] = useState()
   const [errors, setErrors] = useState(false)
 
+  // gets the users profile data
   useEffect(() => {
     const getCurrentUser = async () => {
       try {
-        const payload = getPayload()
-        if (!payload) return 
-        const currentUserId = payload.sub
-        const { data } = await axios.get(`api/auth/users/${currentUserId}`,
+        const { data } = await axios.get(`api/auth/users/${getUserId()}`,
           {
             headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
           }
@@ -39,8 +37,8 @@ const Nav = () => {
   useEffect(() => {
   }, [location.pathname])
 
+  // handles sidebar open/close
   const [show, setShow] = useState(false)
-
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
@@ -64,12 +62,13 @@ const Nav = () => {
     setError(false)
   }
 
+  // submits login form
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
       const { data } = await axios.post('/api/auth/login/', formData)
       setTokenToLocalStorage(data.token)
-      history.push('/animals')
+      history.push('/profile')
       setShow(false)
       console.log('response', data)
     } catch (err) {
@@ -138,12 +137,24 @@ const Nav = () => {
             </>
             :
             <>
-              <Link to="/animals">
-                <h3 className="nav-link">Find a pet</h3>
-              </Link>
-              <Link to="/borrowers">
-                <h3 className="nav-link">Find a borrower</h3>
-              </Link>
+              {
+                userProfile && 
+              <>
+                {
+                  userProfile.account_type === 'owner'
+                    ?
+                    <Link to="/borrowers">
+                      <h3 className="nav-link"><span className="icon"><i className="fas fa-user-friends"></i></span>Find a borrower</h3>
+                    </Link>
+                    :
+                    <Link to="/animals">
+                      <h3 className="nav-link"><span className="icon"><i className="fas fa-paw"></i></span>Find a pet</h3>
+                    </Link>
+                }
+              </>
+
+              }
+
               {
                 userProfile ? 
                   <>
@@ -155,9 +166,23 @@ const Nav = () => {
                         {userProfile.first_name}
                       </Dropdown.Toggle>
                       <Dropdown.Menu>
-                        <Dropdown.Item href="/profile">My profile</Dropdown.Item>
-                        <Dropdown.Item href="/pet-profile">Pet profile</Dropdown.Item>
-                        <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
+                        {
+                          userProfile.account_type === 'owner' 
+                            ?
+                            <>
+                              <Dropdown.Item href="/requests">My requests</Dropdown.Item>
+                              <Dropdown.Item href="/profile">My profile</Dropdown.Item>
+                              <Dropdown.Item href="/pet-profile">Pet profile</Dropdown.Item>
+                              <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
+                            </>
+                            :
+                            <>
+                              <Dropdown.Item href="/profile">My profile</Dropdown.Item>
+                              <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
+                            </>
+
+                        }
+
                       </Dropdown.Menu>
                     </Dropdown>
                   </>

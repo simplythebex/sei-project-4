@@ -11,6 +11,9 @@ p {
   padding: 0;
   margin: 0;
 }
+.icon {
+  margin-right: 5px;
+}
 
 // Navbar styling
 .nav-container {
@@ -40,6 +43,9 @@ p {
         margin: 0 5px;
         font-size: 1.2em;
         color: black;
+        .icon {
+          margin-right: 5px;
+        }
       }
       .nav-link:hover {
         text-decoration: underline;
@@ -173,7 +179,7 @@ p {
 // index styling
 
 .animal-index {
-  margin-top: 10px;
+  margin-top: 40px;
   .row {
     .card {
       margin: 15px;
@@ -241,7 +247,7 @@ p {
 
 // user index styling
 .user-index {
-  margin-top: 10px;
+  margin-top: 40px;
   .row {
     .card {
       margin: 10px;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { getTokenFromLocalStorage, getPayload } from '../../helpers/auth'
+import { getTokenFromLocalStorage, getPayload } from '../helpers/auth'
 import Button from 'react-bootstrap/Button'
 
 const ShowUserProfile = () => {
