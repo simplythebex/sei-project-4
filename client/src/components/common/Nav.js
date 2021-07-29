@@ -61,7 +61,8 @@ const Nav = () => {
     try {
       const { data } = await axios.post('/api/auth/login/', formData)
       setTokenToLocalStorage(data.token)
-      history.push('/borrowers')
+      console.log('logged in')
+      history.push('/profile')
       setShow(false)
       console.log('response', data)
     } catch (err) {

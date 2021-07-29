@@ -22,7 +22,7 @@ const Requests = () => {
         const id = data.animals.map(animal => {
           return animal.id
         })
-        setUserAnimal(id)
+        setUserAnimal(id[0])
         console.log('user id', id)
       } catch (err) {
         console.log(err)
@@ -36,7 +36,6 @@ const Requests = () => {
 
   const [requests, setRequests] = useState(null)
   const [requestErrors, setRequestErrors] = useState(false)
-  const [requestId, setRequsetId] = useState(null)
 
   // gets the requests
   useEffect(() => {
@@ -47,15 +46,17 @@ const Requests = () => {
             headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
           }
         )
-        setRequests(data.reverse())
+        setRequests(data.reverse().filter(req => {
+          return req.animal.id === userAnimal
+        }))
       } catch (err) {
         console.log(err)
         setRequestErrors(true)
       }
     }
     getRequests()
-  }, [])
-  
+  }, [userAnimal])
+
   console.log('requests', requests)
 
   // edit the request status on button click 
@@ -86,7 +87,7 @@ const Requests = () => {
         <Accordion className="accordion">
           <>
             {
-              requests && userAnimal && 
+              requests && 
           
       requests.map(request => {
         return (

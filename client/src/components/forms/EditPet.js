@@ -168,7 +168,7 @@ const EditPet = () => {
         />
 
 
-        <Button varient="light" type="submit">
+        <Button variant="secondary" type="submit">
           Submit
         </Button>
 

@@ -84,7 +84,7 @@ const ShowUserProfile = () => {
 
             </div>
           </div>
-          <div className="bottom">
+          {/* <div className="bottom">
             <hr />
             {
               userProfile.account_type !== 'owner' 
@@ -97,11 +97,10 @@ const ShowUserProfile = () => {
                 <div className="bottom-text">
                   <p>Would you like to borrow a pet?</p>
                   <Button variant="secondary">Create a borrower profile</Button>
-
                 </div>
             
             }
-          </div>
+          </div> */}
         </>
         : <h2>{errors ? 'Something has gone wrong!' : 'loading...'}</h2>
       }
