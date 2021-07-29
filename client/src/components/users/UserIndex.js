@@ -7,16 +7,21 @@ import { getUserId } from '../helpers/auth'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 
-
 const UserIndex = () => {
 
   const [users, setusers] = useState([])
   const [hasError, setHasError] = useState(false)
 
+  // state for the filter
+  const [filteredResults, setFilteredResults] = useState(null)
+  const [scheduleFilterValues, setScheduleFilterValues] = useState([])
+
+  // values to build filters
   const schedule = [
     'weekday - daytimes', 'weekday - evenings', 'weekends', 'holidays or overnight stays'
   ]
 
+  // use effect to get users data
   useEffect(() => {
     const getData = async () => {
       try {
@@ -30,11 +35,23 @@ const UserIndex = () => {
     getData()
   }, [])
   
-  console.log('users on state', users)
-
+  // filters data so that only borrowers are displayed
   const borrowers = users.filter(borrower => borrower.account_type === 'borrower' && borrower.id !==  getUserId()).reverse()
-
   console.log(borrowers)
+
+  // useEffect to filter data
+  useEffect(() => {
+    const scheduleMatches = scheduleFilterValues.length ? borrowers.filter(borrower => {
+      return scheduleFilterValues.some(value => borrower.schedule.some(schedule => schedule.name === value))
+    }) : borrowers
+    setFilteredResults(scheduleMatches)
+  }, [scheduleFilterValues, borrowers])
+
+  // functions for handling the checkboxes
+  const handleScheduleChange = (event) => {
+    if (scheduleFilterValues.includes(event.target.value)) return setScheduleFilterValues([...scheduleFilterValues.filter(item => item !== event.target.value)])
+    return setScheduleFilterValues([...scheduleFilterValues, event.target.value])
+  }
 
   return (
     <Container className="user-index">
@@ -54,6 +71,9 @@ const UserIndex = () => {
                       type={'checkbox'}
                       id={`${type}`}
                       label={`${type}`}
+                      name={'schedule'}
+                      value={`${type}`}
+                      onChange={handleScheduleChange}
                     />
                   </div>
 
@@ -64,18 +84,22 @@ const UserIndex = () => {
       
         </Col>
         <Col className="right">
-          <h5>{borrowers.length} borrowers found</h5>
           <Row>
-            {borrowers.length > 0 ?
+            <h5>{(filteredResults ? filteredResults : borrowers).length} borrowers found</h5>
+          </Row>
+          {
+            borrowers ?
               <Row>
-                {borrowers.map(borrower => {
+                {(filteredResults ? filteredResults : borrowers).map(borrower => {
                   return <UserCard key={borrower.id} {...borrower} /> 
                 })}
               </Row>
               :
               <h2>{hasError ? 'Something has gone wrong!' : 'loading... 🐈 🦮 🐇'}</h2>
-            }
-          </Row>
+
+
+
+          }
         </Col>
       </Row>
     </Container>

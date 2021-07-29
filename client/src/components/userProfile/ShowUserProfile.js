@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { getTokenFromLocalStorage, getPayload } from '../helpers/auth'
-import Button from 'react-bootstrap/Button'
+// import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
 
 const ShowUserProfile = () => {
 
@@ -29,6 +30,17 @@ const ShowUserProfile = () => {
     getCurrentUser()
   }, [])
 
+  // toggles animal name appearing on mouseover
+  // const [showName, setShowName] = useState(false)
+
+  // const toggleName = () => {
+  //   setShowName(!showName)
+  // }
+
+  // useEffect(() => {
+  //   setShowName(false)
+  // }, [])
+
   console.log('userprofile', userProfile)
   return (
     <div className="user-profile">
@@ -40,7 +52,7 @@ const ShowUserProfile = () => {
             </div>
             <div className="information">
               <div className="info-header">
-                <h3>{userProfile.first_name}</h3>
+                <h3>Welcome back, {userProfile.first_name}</h3>
                 {/* <Button variant="secondary"><span className="icon"><i className="fas fa-edit"></i></span>Edit</Button> */}
               </div>
               <hr />
@@ -81,9 +93,30 @@ const ShowUserProfile = () => {
               <div className="bio">
                 <p>{userProfile.bio}</p>
               </div>
-
             </div>
           </div>
+          <hr />
+          <Row className="bottom">
+            <h4>Your animals</h4>
+            {
+              userProfile.animals.map(animal => {
+                return (
+                  <div 
+                    key={animal.id} 
+                    className="animals" 
+                    style={{ backgroundImage: `url(${animal.animal_image})` }}
+                    // onMouseOver={toggleName}
+                    // onMouseOut={toggleName}
+                  >
+                    <div className="animal-name">
+                      <h4>{animal.animal_name}</h4>
+                    </div>
+                  </div>
+                )
+              })
+            }
+
+          </Row>
           {/* <div className="bottom">
             <hr />
             {

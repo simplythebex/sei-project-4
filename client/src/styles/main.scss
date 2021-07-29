@@ -223,7 +223,7 @@ p {
 
 .animal-show {
   margin-top: 50px;
-  height: 530px;
+  height: 100vh;
   .animal-card {
     display: flex;
     justify-content: center;
@@ -310,6 +310,7 @@ p {
 // user show styling 
 
 .user-show {
+  height: 100vh;
   margin-top: 50px;
   .user-card {
     display: flex;
@@ -344,11 +345,12 @@ p {
 
 // user profile styling 
 .user-profile{
-  height: 610px;
+  height: 100vh;
   .top {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin: 0 50px;
     .profile-images {
       margin-top: 30px;
       img {
@@ -431,6 +433,7 @@ p {
 
   .bottom {
     margin: 0 30px;
+
     .bottom-text {
       margin: 0 100px;
       p {
@@ -438,12 +441,40 @@ p {
         margin-bottom: 10px;
       }
     }
+    .animals {
+        height: 300px;
+        width: 300px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        .animal-name {
+          width: 300px;
+          height: 300px;
+          color:rgba(0, 0, 0, 0)
+        }
+        .animal-name:hover {
+          color: white;
+          background-color: rgba(0, 0, 0, 0.4);
+          border-radius: 10px;
+          position: relative;
+          width: 300px;
+          height: 300px;
+          left: -11px;
+          text-align: center;
+        }
+        h4 {
+          position: absolute;
+          top: 140px;
+          right: 170px;
+        }
+    }
   }
 }
 
 // view requests page
 .request-page {
-  height: 560px;
+  height: 100vh;
   h3 {
     margin-top: 50px;
   }

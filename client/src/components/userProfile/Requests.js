@@ -9,6 +9,11 @@ const Requests = () => {
 
   const [userAnimal, setUserAnimal] = useState(null)
   const [errors, setErrors] = useState(false)
+  const [currentUser, setCurrentUser] = useState(null)
+  const [requests, setRequests] = useState(null)
+  const [requestErrors, setRequestErrors] = useState(false)
+  const [filteredRequests, setFilteredRequests] = useState(null)
+  const [updatedReq, setUpdatedReq] = useState(null)
 
   // gets the users profile
   useEffect(() => {
@@ -19,6 +24,7 @@ const Requests = () => {
             headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
           }
         )
+        setCurrentUser(data.id)
         const id = data.animals.map(animal => {
           return animal.id
         })
@@ -32,11 +38,6 @@ const Requests = () => {
     getCurrentUser()
   }, [])
 
-  console.log('userAnimal', userAnimal)
-
-  const [requests, setRequests] = useState(null)
-  const [requestErrors, setRequestErrors] = useState(false)
-
   // gets the requests
   useEffect(() => {
     const getRequests = async () => {
@@ -46,39 +47,39 @@ const Requests = () => {
             headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
           }
         )
-        setRequests(data.reverse().filter(req => {
-          return req.animal.id === userAnimal
-        }))
+        setRequests(data.reverse())
       } catch (err) {
         console.log(err)
         setRequestErrors(true)
       }
     }
-    getRequests()
-  }, [userAnimal])
+    if (currentUser) getRequests()
+  }, [currentUser])
 
   console.log('requests', requests)
 
-  // edit the request status on button click 
+  // filters the requests to show only those belonging to the current user
+  useEffect(() => {
+    const filterRequests = () => {
+      const filteredReq = requests.filter(request => {
+        return request.animal.owner === currentUser
+      })
+      setFilteredRequests(filteredReq)
+    }
+    if (requests && currentUser) filterRequests()
+  }, [requests, currentUser])
 
-  // const [updatedRequest, setUpdatedRequest] = useState({
-  //   request_status: '',
-  //   message: '',
-  //   animal: '',
-  // })
-
-  // const handleAccept = async (id) => {
-  //   try {
-  //     const updatedFormData = { ...updatedRequest, request_status: 'accepted' }
-  //     setUpdatedRequest(updatedFormData)
-  //     await axios.put(`/api/requests/${id}/`, updatedRequest, {
-  //       headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
-  //     })
-  //   } catch (err) {
-  //     console.log('error response', err.response)
-  //     setErrors(err.response.data.errors)
-  //   }
-  // }
+  const handleButton = async (value, requestId) => {
+    const { data: requestToUpdate } = await axios.get(`/api/requests/${requestId}`)
+    const updatedObject = { ...requestToUpdate, request_status: value }
+    try {
+      await axios.put(`/api/requests/${requestId}/`, updatedObject, {
+        headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <>
@@ -87,43 +88,39 @@ const Requests = () => {
         <Accordion className="accordion">
           <>
             {
-              requests && 
-          
-      requests.map(request => {
-        return (
-          <Accordion.Item key={request.id} eventKey={request.id}>
-            <Accordion.Header className="accordion-header">
-              <img src={request.owner.profile_picture} alt={request.owner.username} />
-              <div>
-                <h5>{request.owner.first_name}</h5>
-                <p>Request for: {request.animal.animal_name}</p>
-              </div>
-            </Accordion.Header>
-            <Accordion.Body className="accordion-body">
-              <div className="content">
-                <div className="left">
-                  <p className="time">{(new Date(String(request.created_at)).toLocaleString()).slice(0, 10)}</p>
-                </div>
-                <p>{request.message}</p>
-              </div>
-              {
-                request.request_status === 'pending'
-                  ?
-                  <div className="buttons">
-                    {/* <Button variant="success" onClick={handleAccept(request.id)}>Accept Request</Button> */}
-                    {/* <Button variant="danger" onClick={handleDecline}>Decline Request</Button> */}
-                  </div>
-                  :
-                  <div className="accepted">
-                    <p>Accepted</p>
-                  </div>
-
-              }
-
-            </Accordion.Body>
-          </Accordion.Item>
-        )
-      })
+              filteredRequests && filteredRequests.map(request => {
+                return (
+                  <Accordion.Item key={request.id} eventKey={request.id}>
+                    <Accordion.Header className="accordion-header">
+                      <img src={request.owner.profile_picture} alt={request.owner.username} />
+                      <div>
+                        <h5>{request.owner.first_name}</h5>
+                        <p>Request for: {request.animal.animal_name}</p>
+                      </div>
+                    </Accordion.Header>
+                    <Accordion.Body className="accordion-body">
+                      <div className="content">
+                        <div className="left">
+                          <p className="time">{(new Date(String(request.created_at)).toLocaleString()).slice(0, 10)}</p>
+                        </div>
+                        <p>{request.message}</p>
+                      </div>
+                      {
+                        request.request_status === 'pending'
+                          ?
+                          <div className="buttons">
+                            <Button variant="success" onClick={() => handleButton('accepted', request.id)}>Accept Request</Button>
+                            <Button variant="danger" onClick={() => handleButton('declined', request.id)}>Decline Request</Button>
+                          </div>
+                          :
+                          <div className={request.request_status}>
+                            <p>{request.request_status}</p>
+                          </div>
+                      }
+                    </Accordion.Body>
+                  </Accordion.Item>
+                )
+              })
             }
           </>
         </Accordion>
