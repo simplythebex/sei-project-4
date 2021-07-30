@@ -61,7 +61,7 @@
     "animal_type": "Dog",
     "animal_bio": "Matcha is a golden retriever. She loves going for walks and eating ice-cream!",
     "animal_age": 2,
-    "animal_image": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627156678/SEI_56_Project4/fafdfba1-6979-4b9e-aeba-adeb668edf1b_rvalpr.jpg",
+    "animal_image": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627156683/SEI_56_Project4/40e3fbf7-1209-4b41-9a61-23ad30af3576_ag5aox.jpg",
     "owner": 12,
     "activity": [
       2
@@ -79,7 +79,7 @@
     "animal_type": "Dog",
     "animal_bio": "Maple is a golden retriever. She loves swimming in the sea, digging and playing with her toys.",
     "animal_age": 1,
-    "animal_image": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627156683/SEI_56_Project4/40e3fbf7-1209-4b41-9a61-23ad30af3576_ag5aox.jpg",
+    "animal_image": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627156678/SEI_56_Project4/fafdfba1-6979-4b9e-aeba-adeb668edf1b_rvalpr.jpg",
     "owner": 12,
     "activity": [
       2
@@ -94,7 +94,7 @@
   "pk": 10,
   "fields": {
     "animal_name": "Monty",
-    "animal_type": "dog",
+    "animal_type": "Dog",
     "animal_bio": "Monty is a labradoodle puppy. He enjoys playing with his family and taking naps!",
     "animal_age": 1,
     "animal_image": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627315914/SEI_56_Project4/fxyqkclovzqpdxma5avc.jpg",
@@ -104,6 +104,137 @@
     ],
     "schedule": [
       1
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 11,
+  "fields": {
+    "animal_name": "Herbie",
+    "animal_type": "Dog",
+    "animal_bio": "Herbie is a very playful beagle. He loves playing fetch and swimming in the sea. While he is very independent he also loves lots of cuddles.",
+    "animal_age": 5,
+    "animal_image": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627502038/SEI_56_Project4/nkwhr5tcd7tnk65ooqgu.jpg",
+    "owner": 18,
+    "activity": [
+      2
+    ],
+    "schedule": [
+      4
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 13,
+  "fields": {
+    "animal_name": "Buster",
+    "animal_type": "Rabbit",
+    "animal_bio": "Buster loves carrots and celery. He is really cuddly and will usually fall asleep in your lap!",
+    "animal_age": 1,
+    "animal_image": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627504401/SEI_56_Project4/orh3x7zketwqgqe4xtbn.jpg",
+    "owner": 21,
+    "activity": [
+      1
+    ],
+    "schedule": [
+      3
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 14,
+  "fields": {
+    "animal_name": "Burt",
+    "animal_type": "Dog",
+    "animal_bio": "Burt is a rescue Staffy with a fear of feathers and many other different things. He loves to play fetch and already has conquered all the pillows in the house.",
+    "animal_age": 3,
+    "animal_image": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627556371/SEI_56_Project4/pl0uplobp4yzuyt3edov.jpg",
+    "owner": 22,
+    "activity": [
+      2
+    ],
+    "schedule": [
+      1
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 15,
+  "fields": {
+    "animal_name": "Watson",
+    "animal_type": "Rabbit",
+    "animal_bio": "Watson loves carrots and spring greens.",
+    "animal_age": 2,
+    "animal_image": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627583769/SEI_56_Project4/xblfyotaujdaikwmdacv.jpg",
+    "owner": 26,
+    "activity": [
+      3
+    ],
+    "schedule": [
+      1,
+      4
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 16,
+  "fields": {
+    "animal_name": "Sherlock",
+    "animal_type": "Rabbit",
+    "animal_bio": "Sherlock loves hanging out with Watson and eating sweetcorn.",
+    "animal_age": 2,
+    "animal_image": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627583873/SEI_56_Project4/qmt0c9r1qobhihdu1yqy.jpg",
+    "owner": 26,
+    "activity": [
+      3
+    ],
+    "schedule": [
+      4
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 17,
+  "fields": {
+    "animal_name": "Crookshanks",
+    "animal_type": "Cat",
+    "animal_bio": "Crookshanks loves chasing leaves and playing with Hedwig.",
+    "animal_age": 5,
+    "animal_image": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627584050/SEI_56_Project4/mmk9grt16kkjqhuuy62h.jpg",
+    "owner": 27,
+    "activity": [
+      2,
+      3
+    ],
+    "schedule": [
+      1,
+      4
+    ]
+  }
+},
+{
+  "model": "animals.animal",
+  "pk": 18,
+  "fields": {
+    "animal_name": "Hedwig",
+    "animal_type": "Cat",
+    "animal_bio": "Hedwig loves playing with Crookshanks and sleeping.",
+    "animal_age": 3,
+    "animal_image": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627584156/SEI_56_Project4/pvewgskaeboiwor0vfth.jpg",
+    "owner": 27,
+    "activity": [
+      2,
+      3
+    ],
+    "schedule": [
+      1,
+      4
     ]
   }
 }

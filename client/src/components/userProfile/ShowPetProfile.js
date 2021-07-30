@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { getTokenFromLocalStorage, getPayload } from '../helpers/auth'
 
 const ShowPetProfile = () => {
@@ -8,6 +8,8 @@ const ShowPetProfile = () => {
   const [userProfile, setUserProfile] = useState(null)
   const [petProfile, setPetProfile] = useState(null)
   const [errors, setErrors] = useState(false)
+
+  const history = useHistory()
 
   useEffect(() => {
     const getCurrentUser = async () => {
@@ -77,6 +79,8 @@ const ShowPetProfile = () => {
               </div>
               <div className="bottom">
                 <hr />
+                <div className="padding">
+                </div>
               </div>              
             </>
           )

@@ -41,7 +41,19 @@ const UserShow = () => {
             <div className="information">
               {user.bio}
               <hr />
-              {user.first_name} is available to give {user.activity.map(act => act.name)} on {user.schedule.map(sch => sch.name)}
+              <div className="data">
+              <p>Can give</p>
+                {
+                  user.activity.map(act => <div className="activity" key={act.id}><p>{ act.name}</p></div>)
+                }
+              </div>
+              <div className="data">
+              <p>Available on</p>
+                {
+                  user.schedule.map(sch => <div className="schedule" key={sch.id}><p>{ sch.name}</p></div>)
+                }
+              </div>
+
               <hr />
             </div>
           </div>

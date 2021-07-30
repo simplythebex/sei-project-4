@@ -3,10 +3,76 @@
   "model": "requests.request",
   "pk": 2,
   "fields": {
-    "request_status": "pending",
+    "request_status": "declined",
     "message": "please could I play with Monty on Tuesday?",
     "created_at": "2021-07-27T13:20:33.646Z",
     "animal": 10,
+    "owner": 14
+  }
+},
+{
+  "model": "requests.request",
+  "pk": 3,
+  "fields": {
+    "request_status": "accepted",
+    "message": "Would I be able to take Bear for a walk this Saturday?",
+    "created_at": "2021-07-28T19:35:40.775Z",
+    "animal": 7,
+    "owner": 17
+  }
+},
+{
+  "model": "requests.request",
+  "pk": 4,
+  "fields": {
+    "request_status": "accepted",
+    "message": "I'd love to meet Monty! Could I borrow him to take him for a walk on the 5th?",
+    "created_at": "2021-07-28T20:27:43.963Z",
+    "animal": 10,
+    "owner": 20
+  }
+},
+{
+  "model": "requests.request",
+  "pk": 5,
+  "fields": {
+    "request_status": "accepted",
+    "message": "Is Monty available this weekend for a walk?",
+    "created_at": "2021-07-29T15:23:05.085Z",
+    "animal": 10,
+    "owner": 13
+  }
+},
+{
+  "model": "requests.request",
+  "pk": 6,
+  "fields": {
+    "request_status": "pending",
+    "message": "Please could I play with Jem tomorrow?",
+    "created_at": "2021-07-30T09:10:01.155Z",
+    "animal": 5,
+    "owner": 14
+  }
+},
+{
+  "model": "requests.request",
+  "pk": 7,
+  "fields": {
+    "request_status": "pending",
+    "message": "Please could I play with Scout tomorrow?",
+    "created_at": "2021-07-30T09:11:31.322Z",
+    "animal": 6,
+    "owner": 14
+  }
+},
+{
+  "model": "requests.request",
+  "pk": 8,
+  "fields": {
+    "request_status": "pending",
+    "message": "Please could I play with Crookshanks on Thursday?",
+    "created_at": "2021-07-30T09:14:19.627Z",
+    "animal": 17,
     "owner": 14
   }
 }

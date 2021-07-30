@@ -38,7 +38,7 @@
     "last_name": "Jones",
     "account_type": "owner",
     "bio": "I would love to have a cat but am unable to have one in the flat I rent. I would really enjoy playing with a friendly cat at the weekends.",
-    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627157031/SEI_56_Project4/blank-profile_mfj4vl.png",
+    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627581315/SEI_56_Project4/IMG_0647_2_yauz1o.jpg",
     "groups": [],
     "user_permissions": [],
     "activity": [
@@ -66,7 +66,7 @@
     "last_name": "Jones",
     "account_type": "owner",
     "bio": "I have a labradoodle puppy called Bear! I am looking for someone to keep him company in the daytime.",
-    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627157031/SEI_56_Project4/blank-profile_mfj4vl.png",
+    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627580485/SEI_56_Project4/c651c43f-a52b-4cf0-935d-0d31731686ba_lpmh8x.jpg",
     "groups": [],
     "user_permissions": [],
     "activity": [
@@ -120,7 +120,7 @@
     "last_name": "Wong",
     "account_type": "borrower",
     "bio": "I am unable to have pets in my flat but I love cats and golden retrievers. I'd love to have some company on the weekends!",
-    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627157031/SEI_56_Project4/blank-profile_mfj4vl.png",
+    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627580676/SEI_56_Project4/IMG_9451_sqzugy.jpg",
     "groups": [],
     "user_permissions": [],
     "activity": [
@@ -174,7 +174,7 @@
     "last_name": "Jones",
     "account_type": "borrower",
     "bio": "I love cats!",
-    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627304236/SEI_56_Project4/fkk4cfqupk7ber5poc2p.jpg",
+    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627580606/SEI_56_Project4/IMG_9459_czstck.jpg",
     "groups": [],
     "user_permissions": [],
     "activity": [
@@ -201,8 +201,8 @@
     "first_name": "Steve",
     "last_name": "Jones",
     "account_type": "owner",
-    "bio": "I like dogs",
-    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627315014/SEI_56_Project4/jldxfgtldoumh7qlqsyw.png",
+    "bio": "I have a labradoodle puppy called Monty! He is really calm and loves playing with the kids!",
+    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627580679/SEI_56_Project4/0a4d421c-5e3b-44a8-8fc1-17c62fc30761_qjh7qc.jpg",
     "groups": [],
     "user_permissions": [],
     "activity": [
@@ -210,6 +210,315 @@
     ],
     "schedule": [
       3
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$h7Mv43TltCpM2nCve32WMo$svj41NvYrKnSF8Dw4zODB5QZouLm92NwvuCD5f8FOQM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "lily",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-28T19:34:24.574Z",
+    "email": "lily@email.com",
+    "first_name": "Lily",
+    "last_name": "James",
+    "account_type": "borrower",
+    "bio": "I love playing with dogs but I haven't got enough time to be able to have one of my own. I would like to be able to take a dog for a walk at the weekends!",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627500862/SEI_56_Project4/mjxidkk6pe40dcjolici.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      3
+    ],
+    "schedule": [
+      3
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$a7kHQOIQQQpMlvwaXKAtxv$OhhsIE5YwaSZZClp+KQdIO0kcQPZWAlhxcmINZafvFg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "nicola",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-28T19:43:06.997Z",
+    "email": "nicola@email.com",
+    "first_name": "Nicola",
+    "last_name": "Jenkins",
+    "account_type": "owner",
+    "bio": "I have a beautiful beagle called Herbie. I would love for someone to keep him company when I am away on holiday.",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627501384/SEI_56_Project4/ndgzszpl6t2jdixbfecd.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      2
+    ],
+    "schedule": [
+      4
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 19,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$4rIYf07bh2AMWLPXVigfL4$CVTPlSnqCHQTqnj5eQH3tnwZs8hBuApyClxvWtW2Bdw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "martha",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-28T20:10:32.450Z",
+    "email": "martha@email.com",
+    "first_name": "Martha",
+    "last_name": "Evans",
+    "account_type": "borrower",
+    "bio": "I love bunnies but unfortunately my boyfriends is allergic. I would really enjoy being able to play with a bunny at the weekends.",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627502991/SEI_56_Project4/eftjn670fzexmbmdea98.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      1
+    ],
+    "schedule": [
+      3
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 20,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$7PDPWIVq92lrij4jxvZtgN$aVl11pvB35jGaknXoCBdyYC2NBMaJTplINixGqVH0Gs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "eric",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-28T20:26:43.072Z",
+    "email": "eric@email.com",
+    "first_name": "Eric",
+    "last_name": "Simpson",
+    "account_type": "borrower",
+    "bio": "I love animals but am renting so cannot own one. I would love to borrow a dog to play with every so often",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627503983/SEI_56_Project4/uikhamw5qxl7kjg9oxr9.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      3
+    ],
+    "schedule": [
+      2
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 21,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$1bH9rjTUpTLHozLCU1eeoo$gu7i8847VJaBuAtZ3ojuM8dmdvlXjH1FydrBuf0vUv4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "blake",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-28T20:32:27.398Z",
+    "email": "blake@email.com",
+    "first_name": "Blake",
+    "last_name": "Saunders",
+    "account_type": "owner",
+    "bio": "I have a 1 year old bunny called Buster. I would love for any users without pets to meet him and hang out!",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627504326/SEI_56_Project4/wlvylugz9r44bhkbdamt.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      1
+    ],
+    "schedule": [
+      3
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 22,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$fbHnLin1Weub2Vugk1ve6N$OFL/yJ+jhQ5fXGlOyEDd72QmiLHZv1PQxFELFmY1hiE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ineta",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-29T10:57:11.735Z",
+    "email": "ineta@email.com",
+    "first_name": "Ineta",
+    "last_name": "B",
+    "account_type": "owner",
+    "bio": "I have a rescue dog called Burt!",
+    "profile_picture": "https://res.cloudinary.com/dkgxxaoqn/image/upload/v1627580537/SEI_56_Project4/IMG_20201007_164856_uslov4.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      1
+    ],
+    "schedule": [
+      1
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 23,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$mWBSZCY2JkcHEZrCg8ib2v$yRQX+OIUU4vkb4MeJIj48RASSQwmvWyY8XaYRTADoqc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "kelly",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-29T18:30:23.134Z",
+    "email": "kelly@email.com",
+    "first_name": "Kelly",
+    "last_name": "Mills",
+    "account_type": "borrower",
+    "bio": "I really like cats and would love to own 500 of them!",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627583394/SEI_56_Project4/mvrvre3dxa2fflrujomw.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      1,
+      2,
+      3
+    ],
+    "schedule": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 24,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$Q6gkefq7iAB1p4bRZadr2Y$mPW09XcVODJ1v/hOfX7GMzPtficVJwhcnaOBDvsjDJ0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "mitch",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-29T18:32:16.627Z",
+    "email": "mitch@email.com",
+    "first_name": "Mitch",
+    "last_name": "Flowers",
+    "account_type": "borrower",
+    "bio": "I love animals and am looking to spend more time with them!",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627583534/SEI_56_Project4/yofec3jnbtgkao9xy9ec.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      1,
+      2,
+      3
+    ],
+    "schedule": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 25,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$MKzA3hHDqREWKDA99plj0J$4ZljUeXJHFnPX2jy2gFqRPJ/TEqSIxH7jUUAlQ57zIU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "lisa",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-29T18:33:46.029Z",
+    "email": "lisa@email.com",
+    "first_name": "Lisa",
+    "last_name": "James",
+    "account_type": "borrower",
+    "bio": "I love animals and would like to cuddle as many as possible.",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627583624/SEI_56_Project4/nsgyotpvgj31iw4g7pfm.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      2
+    ],
+    "schedule": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 26,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$SfGg5G2gp3kv4Wcg7rquz7$Nun101JiOCbfS2i5S9Gek2RN3RV6U5/czU8/YG3sfUQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "phil",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-29T18:35:35.561Z",
+    "email": "phil@email.com",
+    "first_name": "Phil",
+    "last_name": "May",
+    "account_type": "owner",
+    "bio": "I love bunnies. I have 5 bunnies all named after Sherlock Holmes characters.",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627583733/SEI_56_Project4/xb04bg9wtglybsoccl6w.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      2
+    ],
+    "schedule": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 27,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$4vZ4heVqm5aAtG1wt5LPTh$4hJ0JUQz8pS9fPwHpo1K2RCaCII0ZS4fL+C4LB8PSq0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "mark",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-07-29T18:40:18.037Z",
+    "email": "mark@email.com",
+    "first_name": "Mark",
+    "last_name": "Hankins",
+    "account_type": "owner",
+    "bio": "I really like my cats Crookshanks and Hedwig",
+    "profile_picture": "http://res.cloudinary.com/dkgxxaoqn/image/upload/v1627584016/SEI_56_Project4/fsi4xjprdwfy9kgt5hzk.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "activity": [
+      3
+    ],
+    "schedule": [
+      2
     ]
   }
 }

@@ -114,7 +114,7 @@ const Requests = () => {
                           </div>
                           :
                           <div className={request.request_status}>
-                            <p>{request.request_status}</p>
+                            <p>{request.request_status.toUpperCase()}</p>
                           </div>
                       }
                     </Accordion.Body>

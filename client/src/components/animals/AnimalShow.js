@@ -15,6 +15,8 @@ const AnimalShow = () => {
   const [requests, setRequests] = useState(null)
   const [requestErrors, setRequestErrors] = useState(null)
   const [show, setShow] = useState(false)
+  const [userProfile, setUserProfile] = useState()
+  const [userErrors, setUserErrors] = useState(false)
   const { id } = useParams()
 
   const handleClose = () => setShow(false)
@@ -48,13 +50,31 @@ const AnimalShow = () => {
       }
     }
     getData()
-  }, [id])
+  }, [id, requests])
 
   const handleClick = () => {
     handleShow()
   }
 
   console.log('requests', requests)
+
+  // gets the users profile data
+  useEffect(() => {
+    const getCurrentUser = async () => {
+      try {
+        const { data } = await axios.get(`api/auth/users/${getUserId()}`,
+          {
+            headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
+          }
+        )
+        setUserProfile(data)
+      } catch (err) {
+        console.log(err)
+        setUserErrors(true)
+      }
+    }
+    getCurrentUser()
+  }, [location.pathname])
 
   return (
     <Container className="animal-show">
@@ -90,7 +110,7 @@ const AnimalShow = () => {
                     }
                   </>
                   :
-                  <Button variant="secondary" onClick={handleClick}>Send {animal.owner.first_name} a request</Button>
+                    <Button variant="secondary" onClick={handleClick}>Send {animal.owner.first_name} a request</Button>
                 }
               </div>
             </div>

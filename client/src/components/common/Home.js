@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { userIsAuthenticated, getUserId } from '../helpers/auth'
-import Carousel from 'react-bootstrap/Carousel'
+import { Carousel } from 'react-bootstrap'
 import axios from 'axios'
 
 const Home = () => {
@@ -53,16 +53,18 @@ const Home = () => {
                 {
                   filteredAnimals.map(animal => {
                     <Carousel.Item>
-                      <img
-                        className="d-block w-100"
-                        src={animal.animal_image}
-                        alt={animal.animal_name}
-                    
-                      />
-                      <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                      </Carousel.Caption>
+                      <div className="d-flex carousel justify-content-md-between align-items-md-center">
+                        <img
+                          className="d-block w-100 img-fluid"
+                          src={animal.animal_image}
+                          alt={animal.animal_name}
+                      
+                        />
+                        <Carousel.Caption>
+                          <h3>First slide label</h3>
+                          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
+                      </div>
                     </Carousel.Item>
                   })
                 }
