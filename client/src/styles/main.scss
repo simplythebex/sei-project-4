@@ -256,6 +256,27 @@ p {
         }
 
       }
+      .data {
+        align-items: center;
+        margin: 10px 0;
+        .info {
+          display: flex;
+          align-items: center;
+          margin: 2px;
+        }
+        .activity {
+          padding: 3px 5px;
+          margin-left: 5px;
+          border-radius: 3px;
+          background-color: lightpink;
+        }
+        .schedule {
+          padding: 3px 5px;
+          margin-left: 5px;
+          border-radius: 3px;
+          background-color: lightskyblue;
+        }
+      }
     }
   }
 }

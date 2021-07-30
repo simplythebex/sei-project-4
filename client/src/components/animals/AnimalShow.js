@@ -89,11 +89,26 @@ const AnimalShow = () => {
             <div className="information">
               {animal.animal_bio}
               <hr />
-              <ul>
-                <li>{animal.animal_type}</li>
-                <li>{animal.animal_age} years old</li>
-                <li>{animal.animal_name} needs {animal.activity.map(act => act.name)} on {animal.schedule.map(sch => sch.name)}</li>
-              </ul>
+              <div className="data">
+                <div className="info">
+                  <p><span className="icon"><i className="fas fa-paw"></i></span>{animal.animal_type}</p>
+                </div>
+                <div className="info">
+                  <p><span className="icon"><i className="fas fa-bone"></i></span>{animal.animal_age} years old</p>
+                </div>
+                <div className="info">
+                  <p><span className="icon"><i className="fas fa-bullhorn"></i></span>{animal.animal_name} needs: </p>
+                  {
+                    animal.activity.map(act => <div className="activity">{act.name}</div>)
+                  }
+                </div>
+                <div className="info">
+                  <p><span className="icon"><i className="fas fa-calendar-alt"></i></span>Available on:</p>
+                  {
+                    animal.schedule.map(sch => <div className="schedule">{sch.name}</div>)
+                  }
+                </div>
+              </div>
               <hr />
               <div className="request">
                 <div className="owner">
