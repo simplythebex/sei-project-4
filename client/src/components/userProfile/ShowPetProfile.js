@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
+
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, useHistory } from 'react-router-dom'
@@ -9,7 +13,7 @@ const ShowPetProfile = () => {
   const [petProfile, setPetProfile] = useState(null)
   const [errors, setErrors] = useState(false)
 
-  const history = useHistory()
+  // const history = useHistory()
 
   useEffect(() => {
     const getCurrentUser = async () => {

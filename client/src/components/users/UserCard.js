@@ -1,4 +1,7 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
 
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'

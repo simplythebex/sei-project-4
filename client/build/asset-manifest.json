@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6e3f0389.chunk.css",
+    "main.js": "/static/js/main.8bee23e3.chunk.js",
+    "main.js.map": "/static/js/main.8bee23e3.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.900dd88b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.900dd88b.js.map",
+    "static/css/2.d686cf2f.chunk.css": "/static/css/2.d686cf2f.chunk.css",
+    "static/js/2.e309d6d8.chunk.js": "/static/js/2.e309d6d8.chunk.js",
+    "static/js/2.e309d6d8.chunk.js.map": "/static/js/2.e309d6d8.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.d686cf2f.chunk.css.map": "/static/css/2.d686cf2f.chunk.css.map",
+    "static/css/main.6e3f0389.chunk.css.map": "/static/css/main.6e3f0389.chunk.css.map",
+    "static/js/2.e309d6d8.chunk.js.LICENSE.txt": "/static/js/2.e309d6d8.chunk.js.LICENSE.txt",
+    "static/media/PetPalLogo.c3e821c2.jpg": "/static/media/PetPalLogo.c3e821c2.jpg",
+    "static/media/main.scss": "/static/media/homepage-background.c5e5bec4.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.900dd88b.js",
+    "static/css/2.d686cf2f.chunk.css",
+    "static/js/2.e309d6d8.chunk.js",
+    "static/css/main.6e3f0389.chunk.css",
+    "static/js/main.8bee23e3.chunk.js"
+  ]
+}

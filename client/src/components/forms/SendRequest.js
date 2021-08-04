@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
+
 import React, { useState } from 'react'
 import axios from 'axios'
 import { getTokenFromLocalStorage } from '../helpers/auth'
@@ -20,7 +24,7 @@ const SendRequest = ({ id, name, handleClose }) => {
 
   console.log('formdata', formData)
 
-    const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     try {
       console.log('formData->', formData)

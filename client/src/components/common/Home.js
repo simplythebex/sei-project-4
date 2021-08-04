@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
+
 import React, { useEffect, useState } from 'react'
 import { userIsAuthenticated, getUserId } from '../helpers/auth'
 import { Carousel } from 'react-bootstrap'

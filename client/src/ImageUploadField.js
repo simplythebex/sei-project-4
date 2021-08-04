@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
 
 import React from 'react'
 import axios from 'axios'

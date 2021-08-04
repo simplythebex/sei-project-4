@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
+
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { getTokenFromLocalStorage, getPayload } from '../helpers/auth'
@@ -51,13 +55,13 @@ const ShowUserProfile = () => {
               </div>
               <hr />
               <div className="date-joined">
-              {
-                userProfile.account_type === "owner"
-                ?
-                <Button variant="secondary" onClick={handleClick}><span className="icon"><i class="fas fa-plus"></i></span>Add another pet</Button>
-                :
-                <div></div>
-              }
+                {
+                  userProfile.account_type === 'owner'
+                    ?
+                    <Button variant="secondary" onClick={handleClick}><span className="icon"><i className="fas fa-plus"></i></span>Add another pet</Button>
+                    :
+                    <div></div>
+                }
                 <p>Member since: {(new Date(String(userProfile.date_joined)).toLocaleString()).slice(0, 10)}</p>
               </div>
               <hr />
@@ -98,34 +102,34 @@ const ShowUserProfile = () => {
           </div>
           <hr />
           <Row className="bottom">
-          {
-            userProfile.account_type === "owner"
-            ?
-            <>
-            <h3>Your Pets</h3>
-            <hr/>
             {
-              userProfile.animals.map(animal => {
-                return (
-                    <div 
-                      key={animal.id} 
-                      className="animals" 
-                      style={{ backgroundImage: `url(${animal.animal_image})` }}
-                    >
-                      <Link to={`/animals/${animal.id}`}>
-                        <div className="animal-name">
-                          <h4>{animal.animal_name}</h4>
+              userProfile.account_type === 'owner'
+                ?
+                <>
+                  <h3>Your Pets</h3>
+                  <hr/>
+                  {
+                    userProfile.animals.map(animal => {
+                      return (
+                        <div 
+                          key={animal.id} 
+                          className="animals" 
+                          style={{ backgroundImage: `url(${animal.animal_image})` }}
+                        >
+                          <Link to={`/animals/${animal.id}`}>
+                            <div className="animal-name">
+                              <h4>{animal.animal_name}</h4>
+                            </div>
+                          </Link>
                         </div>
-                      </Link>
-                    </div>
-                )
-              })
-            }
-            </>
-            :
-            <div className="padding"></div>
+                      )
+                    })
+                  }
+                </>
+                :
+                <div className="padding"></div>
 
-          }
+            }
 
           </Row>
           {/* <div className="bottom">

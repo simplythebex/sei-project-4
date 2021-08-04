@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
+
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
@@ -42,13 +46,13 @@ const UserShow = () => {
               {user.bio}
               <hr />
               <div className="data">
-              <p>Can give</p>
+                <p>Can give</p>
                 {
                   user.activity.map(act => <div className="activity" key={act.id}><p>{ act.name}</p></div>)
                 }
               </div>
               <div className="data">
-              <p>Available on</p>
+                <p>Available on</p>
                 {
                   user.schedule.map(sch => <div className="schedule" key={sch.id}><p>{ sch.name}</p></div>)
                 }

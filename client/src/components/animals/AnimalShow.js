@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
+
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
@@ -99,13 +103,13 @@ const AnimalShow = () => {
                 <div className="info">
                   <p><span className="icon"><i className="fas fa-bullhorn"></i></span>{animal.animal_name} needs: </p>
                   {
-                    animal.activity.map(act => <div className="activity">{act.name}</div>)
+                    animal.activity.map((act, index) => <div key={index} className="activity">{act.name}</div>)
                   }
                 </div>
                 <div className="info">
                   <p><span className="icon"><i className="fas fa-calendar-alt"></i></span>Available on:</p>
                   {
-                    animal.schedule.map(sch => <div className="schedule">{sch.name}</div>)
+                    animal.schedule.map((sch, index) => <div key={index} className="schedule">{sch.name}</div>)
                   }
                 </div>
               </div>
@@ -125,7 +129,7 @@ const AnimalShow = () => {
                     }
                   </>
                   :
-                    <Button variant="secondary" onClick={handleClick}>Send {animal.owner.first_name} a request</Button>
+                  <Button variant="secondary" onClick={handleClick}>Send {animal.owner.first_name} a request</Button>
                 }
               </div>
             </div>

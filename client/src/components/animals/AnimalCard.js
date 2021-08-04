@@ -1,4 +1,8 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
+/*eslint camelcase: ["error", {"properties": "never", ignoreDestructuring: true}]*/
 
 import React from 'react'
 import { Link } from 'react-router-dom'
