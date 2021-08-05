@@ -8,6 +8,7 @@ django = "*"
 pylint = "*"
 pyjwt = "*"
 djangorestframework = "*"
+django-on-heroku = "*"
 
 [dev-packages]
 
