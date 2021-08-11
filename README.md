@@ -13,7 +13,9 @@ My app allows for two types of user; an owner can create a profile for themselve
 https://sei56-petpals.herokuapp.com/
 
 To explore the app please log in.
+
 Owner login details: owner@email.com, pw: owner12345! 
+
 Borrower login details: borrower@email.com, pw: borrower12345! 
 
 ## Brief
