@@ -73,7 +73,6 @@ Post Requests
 
 Put Requests
 /requests (to edit the borrow request status - accept or decline)
-Finally I finished planning by creating a Trello board for the project, allowing me to track what was needed, in progress and completed:
 
 Finally I completed my planning by creating a Trello board for the project, with all of the tasks I would need to complete for the MVP and any extra features I would like to implement given time. 
 
