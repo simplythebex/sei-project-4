@@ -29,24 +29,24 @@ Create a full-stack app using Python, Django and a SQL database. The app should 
 ## Technologies
 
 ### Planning
-Figma
-Trello
-Miro
+- Figma
+- Trello
+- Miro
 
 ### Backend
-Python
-Django
-SQLite
+- Python
+- Django
+- SQLite
 
 ### Frontend
-React
-SASS
-Bootstrap
-Axios
+- React
+- SASS
+- Bootstrap
+- Axios
 
 ### Other
-Git
-Github
+- Git
+- Github
 
 ## Approach 
 
@@ -66,16 +66,16 @@ I created a flowchart in Miro to help me picture the organisation of my backend,
 I then planned out which requests would be required in my backend in order to make my MVP possible, and decided that I needed the following:
 
 **Get Requests**
-/users (to get user profile data)
-/animals (to get animal profile data)
+- /users (to get user profile data)
+- /animals (to get animal profile data)
 
 **Post Requests**
-/users (to add a user profile)
-/animals (to add an animal profile)
-/requests (to add a borrow request)
+- /users (to add a user profile)
+- /animals (to add an animal profile)
+- /requests (to add a borrow request)
 
 **Put Requests**
-/requests (to edit the borrow request status - accept or decline)
+- /requests (to edit the borrow request status - accept or decline)
 
 Finally I completed my planning by creating a Trello board for the project, with all of the tasks I would need to complete for the MVP and any extra features I would like to implement given time. 
 
@@ -114,11 +114,11 @@ Building the models and relationships was also a big win. My Backend is relative
 Initially I had wanted a user to be able to be both an owner and a borrower if they wished, however once I was building the app I found that this was more complicated than I initially realised. With a short timeframe I decided to keep the profiles separate and focus on allowing users to send requests, and on styling the app. 
 
 ## Key Learnings
-**Python:** This was my first project using Python, and I enjoyed developing my skills.
-**React:** As my third project using React, I now have a strong understanding of its uses and am excited to continue using it in the future.
-**Django and SQL:** I had the opportunity to use new technologies in my Backend and enjoyed exploring the differences when compared to MongoDB, Express and Node, which I had used in my previous projects.
+- **Python:** This was my first project using Python, and I enjoyed developing my skills.
+- **React:** As my third project using React, I now have a strong understanding of its uses and am excited to continue using it in the future.
+- **Django and SQL:** I had the opportunity to use new technologies in my Backend and enjoyed exploring the differences when compared to MongoDB, Express and Node, which I had used in my previous projects.
 
 ## Future
-Improving responsiveness.
-Adding functionality for users to send messages to each other.
-Combining profiles so that users can be both owners and borrowers.
+- Improving responsiveness.
+- Adding functionality for users to send messages to each other.
+- Combining profiles so that users can be both owners and borrowers.
