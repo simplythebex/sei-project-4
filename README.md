@@ -118,7 +118,7 @@ Initially I had wanted a user to be able to be both an owner and a borrower if t
 - **React:** As my third project using React, I now have a strong understanding of its uses and am excited to continue using it in the future.
 - **Django and SQL:** I had the opportunity to use new technologies in my Backend and enjoyed exploring the differences when compared to MongoDB, Express and Node, which I had used in my previous projects.
 
-## Future
+## Future Improvements
 - Improving responsiveness.
 - Adding functionality for users to send messages to each other.
 - Combining profiles so that users can be both owners and borrowers.
