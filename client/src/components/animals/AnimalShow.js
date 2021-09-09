@@ -66,7 +66,7 @@ const AnimalShow = () => {
   useEffect(() => {
     const getCurrentUser = async () => {
       try {
-        const { data } = await axios.get(`api/auth/users/${getUserId()}`,
+        const { data } = await axios.get(`api/auth/users/${getUserId()}/`,
           {
             headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
           }

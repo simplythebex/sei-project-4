@@ -49,7 +49,7 @@ const UserIndex = () => {
       return scheduleFilterValues.some(value => borrower.schedule.some(schedule => schedule.name === value))
     }) : borrowers
     setFilteredResults(scheduleMatches)
-  }, [scheduleFilterValues, borrowers])
+  }, [scheduleFilterValues, users])
 
   // functions for handling the checkboxes
   const handleScheduleChange = (event) => {

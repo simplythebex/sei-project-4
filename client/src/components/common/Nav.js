@@ -24,7 +24,7 @@ const Nav = () => {
   useEffect(() => {
     const getCurrentUser = async () => {
       try {
-        const { data } = await axios.get(`api/auth/users/${getUserId()}`,
+        const { data } = await axios.get(`api/auth/users/${getUserId()}/`,
           {
             headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
           }
@@ -85,7 +85,7 @@ const Nav = () => {
   return (
     <div className="nav-container">
       <div className="navbar">
-        {!userIsAuthenticated 
+        {!userIsAuthenticated() 
           ? 
           <a href="/">
             <div className="nav-logo">
@@ -145,20 +145,22 @@ const Nav = () => {
             :
             <>
               {
-                userProfile && 
-              <>
-                {
-                  userProfile.account_type === 'owner'
-                    ?
-                    <Link to="/borrowers">
-                      <h3 className="nav-link"><span className="icon"><i className="fas fa-user-friends"></i></span>Find a borrower</h3>
-                    </Link>
-                    :
-                    <Link to="/animals">
-                      <h3 className="nav-link"><span className="icon"><i className="fas fa-paw"></i></span>Find a pet</h3>
-                    </Link>
-                }
-              </>
+                userProfile ?
+                  <>
+                    {
+                      userProfile.account_type === 'owner'
+                        ?
+                        <Link to="/borrowers">
+                          <h3 className="nav-link"><span className="icon"><i className="fas fa-user-friends"></i></span>Find a borrower</h3>
+                        </Link>
+                        :
+                        <Link to="/animals">
+                          <h3 className="nav-link"><span className="icon"><i className="fas fa-paw"></i></span>Find a pet</h3>
+                        </Link>
+                    }
+                  </>
+                  : 
+                  <p>loading profile data</p>
 
               }
 
