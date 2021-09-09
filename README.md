@@ -2,7 +2,7 @@
 
 ## Overview
 
-Petpals was my final project during my time at General Assembly. It was a solo project, programmed using Python and Django in the backend with a SQLite database. The front end was built using React.js and SASS and Bootstrap were used to style the project.
+Petpals was my final project during my time as a Software Engineering Immersive student at General Assembly. It was a solo project, programmed using Python and Django in the backend with a SQLite database. The front end was built using React.js and SASS and Bootstrap were used to style the project.
 
 PetPals is my take on Borrow My Doggy. As a huge cat lover, with no space for a pet in a London flat, I was disappointed that Borrow My Doggy only caters to one type of animal lover. Therefore I set out to create a pet sharing app that allows the sharing of all types of animals.
 
@@ -52,12 +52,12 @@ Create a full-stack app using Python, Django and a SQL database. The app should 
 
 ### Planning
 After deciding on the project I took my time to plan each stage, and to ensure that I understood the models and relationships I needed to create in order to meet the goals for my MVP. These goals were:
-Create an app that allows users to create a profile
-If users own a pet they should be able to add a profile for the pet
-If users wants to borrow a pet they should be able to see available pets
-Owners should be able to view borrowers profiles 
-User and animal profile should contain details about availability and activities
-Borrowers should be able to send a request to the owner of a pet they wish to borrow
+- Create an app that allows users to create a profile.
+- If users own a pet they should be able to add a profile for the pet.
+- If users want to borrow a pet they should be able to see available pets.
+- Owners should be able to view borrowers profiles. 
+- User and animal profile should contain details about availability and activities.
+- Borrowers should be able to send a request to the owner of a pet they wish to borrow.
 
 I created a flowchart in Miro to help me picture the organisation of my backend, and to keep track of the models and relationships I needed. I then created a list of the requests I would need to make to my APIs:
 
