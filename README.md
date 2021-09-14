@@ -2,7 +2,7 @@
 
 ## Overview
 
-Petpals was my final project during my time as a Software Engineering Immersive student at General Assembly. It was a solo project, programmed using Python and Django in the backend with a SQLite database. The front end was built using React.js and SASS and Bootstrap were used to style the project.
+Petpals was my final project during my time as a Software Engineering Immersive student at General Assembly. It was a solo project, programmed using Python and Django in the Backend with a SQLite database. The Frontend was built using React.js and SASS and Bootstrap were used to style the project.
 
 PetPals is my take on Borrow My Doggy. As a huge cat lover, with no space for a pet in a London flat, I was disappointed that Borrow My Doggy only caters to one type of animal lover. Therefore I set out to create a pet sharing app that allows the sharing of all types of animals.
 
